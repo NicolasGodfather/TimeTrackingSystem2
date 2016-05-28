@@ -1,10 +1,10 @@
-function deleteCurrency(currencyId, messageDelete, messageError) {
+function deleteEmployee(employeeId, messageDelete, messageError) {
     if (confirm(messageDelete)) {
         $.ajax({
             type: "POST",
-            url: "/delete/currency/" + currencyId,
+            url: "/delete/employee/" + employeeId,
             success: function (result) {
-                $("#trCurrencyId" + currencyId).remove();
+                $("#trEmployeeId" + employeeId).remove();
             },
             error: function () {
                 alert(messageError);

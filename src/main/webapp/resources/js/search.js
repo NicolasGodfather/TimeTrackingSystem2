@@ -1,7 +1,7 @@
 function search() {
     $.ajax({
         type: "GET",
-        url: "/all/currency/search/" + $('#searchCriteria').val(),
+        url: "/all/employee/search/" + $('#searchCriteria').val(),
         success: function (result) {
             $("#tableCurrency").html(result);
         }
