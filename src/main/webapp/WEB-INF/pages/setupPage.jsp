@@ -11,8 +11,5 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
 
-<script type="text/javascript" src="<c:url value="/resources/js/windowButtonDelete.js" />"></script>
-<script type="text/javascript" src="<c:url value="/resources/js/search.js" />"></script>
-
-<%--TODO Jstl сообщения подключил, как засунуть в метод
-<fmt:message key="message.confirm.deleteCurrency" bundle="${lang}"/>--%>
+<%--<script type="text/javascript" src="<c:url value="/resources/js/windowButtonDelete.js" />"></script>--%>
+<%--<script type="text/javascript" src="<c:url value="/resources/js/search.js" />"></script>--%>

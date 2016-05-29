@@ -2,8 +2,9 @@
 
 <p>
     <a class="btn btn-primary btn-xs" href="/" role="button">All Employee</a>
-    <a class="btn btn-primary btn-xs" href="/all/currency" role="button">All Currency</a>
-    <a class="btn btn-primary btn-xs" href="/all/user" role="button">All User</a>
-    <a class="btn btn-primary btn-xs" href="/all/exchange" role="button">All Exchange</a>
+    <%--<a class="btn btn-primary btn-xs" href="/all/project" role="button">All Project</a>--%>
+    <%--<a class="btn btn-primary btn-xs" href="/all/task" role="button">All Tasks</a>--%>
+    <%--<a class="btn btn-primary btn-xs" href="/all/spentTime" role="button">All Spent Time</a>--%>
 </p>
+
 </p>

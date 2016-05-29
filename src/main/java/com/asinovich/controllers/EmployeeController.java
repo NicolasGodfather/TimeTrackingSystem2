@@ -39,13 +39,13 @@ public class EmployeeController {
         binder.setValidator(employeeFormValidator);
     }
 
-    @RequestMapping(value = "/all/employee", method = RequestMethod.GET)
+    @RequestMapping(value = "all/employee", method = RequestMethod.GET)
     public String showAllEmployees(ModelMap modelMap) {
         modelMap.addAttribute("employees", employeeService.getAll());
         return All_EMPLOYEE;
     }
 
-    @RequestMapping(value = "/save/employee", method = RequestMethod.GET)
+    @RequestMapping(value = "/add/employee", method = RequestMethod.GET)
     public String showPageAddEmployee(ModelMap modelMap) {
         modelMap.addAttribute("employeeForm", new EmployeeForm());
         return SAVE_EMPLOYEE;
