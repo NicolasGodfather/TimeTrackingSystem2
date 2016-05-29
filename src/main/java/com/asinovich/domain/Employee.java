@@ -3,15 +3,16 @@ package com.asinovich.domain;
 import javax.persistence.*;
 
 /**
- * Реализация
+ * Реализация работника
  *
  * @author Nicolas Asinovich.
  */
 
 @Entity
+@Table (name = "employee")
 public class Employee {
     @Id
-//    @Column (name = "id")
+    @Column (name = "id")
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
