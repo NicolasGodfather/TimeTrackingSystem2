@@ -14,21 +14,19 @@ import java.util.List;
  */
 
 @Entity
-@Table (name = "task")
 public class Task {
     @Id
-    @Column (name = "id")
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column (name = "taskName")
     private String taskName;
 
-    @Column (name = "responsibleEmployee")
+//    @ManyToMany
+//    @JoinColumn(name = "responsibleEmployeeId")
     private Employee responsibleEmployee;
 
-    @Column (name = "listRecordSpentTime")
 //    @ManyToOne
+//    @JoinColumn(name = "responsibleEmployeeId")
     private List<RecordSpentTime> listRecordSpentTime;
 
     public long getId () {

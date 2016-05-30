@@ -14,22 +14,19 @@ import java.util.List;
  */
 
 @Entity
-@Table (name = "project")
 public class Project {
     @Id
-    @Column (name = "id")
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column (name = "projectName")
     private String projectName;
 
-    @Column (name = "responsibleEmployee")
-//    @ManyToMany
+    @ManyToMany
+    @JoinColumn(name = "responsibleEmployeeId")
     private Employee responsibleEmployee;
 
-    @Column (name = "listTask")
-//    @ManyToOne
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="owner")
+    @JoinColumn(name = "responsibleEmployeeId")
     private List<Task> listTask;
 
     public long getId () {

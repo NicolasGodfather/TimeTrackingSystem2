@@ -14,20 +14,16 @@ import java.util.Calendar;
  */
 
 @Entity
-@Table (name = "recordSpentTime")
 public class RecordSpentTime {
     @Id
     @Column (name = "id")
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column (name = "employeeName")
     private String employeeName;
 
-    @Column (name = "calendarInsertRecord")
     private Calendar calendarInsertRecord;
 
-    @Column (name = "numberOfHour")
     private int numberOfHour;
 
     public long getId () {
