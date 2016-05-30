@@ -80,8 +80,8 @@ public class EmployeeController {
 
     private EmployeeDTO getEmployeeDTO(@Validated EmployeeForm employeeForm) {
         EmployeeDTO employeeDTO = new EmployeeDTO();
-        employeeDTO.setFirstName(employeeForm.getFirstName());
-        employeeDTO.setLastName(employeeForm.getLastName());
+        employeeDTO.setName(employeeForm.getName());
+        employeeDTO.setSurname(employeeForm.getSurname());
         return employeeDTO;
     }
 

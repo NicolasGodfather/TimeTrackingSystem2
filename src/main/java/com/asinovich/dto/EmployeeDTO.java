@@ -3,7 +3,6 @@ package com.asinovich.dto;
 import com.asinovich.domain.Employee;
 
 /**
- * Реализация
  *
  * @author Nicolas Asinovich.
  */

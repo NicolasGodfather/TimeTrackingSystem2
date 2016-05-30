@@ -5,7 +5,6 @@ import com.asinovich.domain.RecordSpentTime;
 import java.util.Calendar;
 
 /**
- * Реализация
  *
  * @author Nicolas Asinovich.
  */

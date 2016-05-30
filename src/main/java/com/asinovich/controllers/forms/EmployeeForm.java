@@ -9,8 +9,8 @@ import com.asinovich.dto.EmployeeDTO;
  */
 public class EmployeeForm {
     private String id;
-    private String firstName;
-    private String lastName;
+    private String name;
+    private String surname;
     private String position;
 
     public EmployeeForm () {
@@ -18,8 +18,8 @@ public class EmployeeForm {
 
     public EmployeeForm (EmployeeDTO employeeDTO) {
         this.id = employeeDTO.getId();
-        this.firstName =employeeDTO.getFirstName();
-        this.lastName = employeeDTO.getLastName();
+        this.name = employeeDTO.getName();
+        this.surname = employeeDTO.getSurname();
         this.position = employeeDTO.getPosition();
     }
 
@@ -31,20 +31,20 @@ public class EmployeeForm {
         this.id = id;
     }
 
-    public String getFirstName () {
-        return firstName;
+    public String getName () {
+        return name;
     }
 
-    public void setFirstName (String firstName) {
-        this.firstName = firstName;
+    public void setName (String name) {
+        this.name = name;
     }
 
-    public String getLastName () {
-        return lastName;
+    public String getSurname () {
+        return surname;
     }
 
-    public void setLastName (String lastName) {
-        this.lastName = lastName;
+    public void setSurname (String surname) {
+        this.surname = surname;
     }
 
     public String getPosition () {
@@ -58,8 +58,8 @@ public class EmployeeForm {
     @Override
     public String toString () {
         return "EmployeeForm{" +
-                "lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
+                "surname='" + surname + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

@@ -19,14 +19,14 @@ public class EmployeeFormValidator implements Validator{
     }
 
     public void validate (Object o, Errors errors) {
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "valid.employeeFirstName.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "valid.employeeLastName.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "valid.employeeName.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "surname", "valid.employeeSurname.empty");
         EmployeeForm message = (EmployeeForm) o;
-        if (message.getFirstName().length() < 2 || message.getFirstName().length() > 20) {
-            errors.rejectValue("firstName", "valid.employeeFirstName.length");
+        if (message.getName().length() < 2 || message.getName().length() > 20) {
+            errors.rejectValue("name", "valid.employeeName.length");
         }
-        if (message.getLastName().length() < 2 || message.getLastName().length() > 20) {
-            errors.rejectValue("lastName", "valid.employeeLastName.length");
+        if (message.getSurname().length() < 2 || message.getSurname().length() > 20) {
+            errors.rejectValue("surname", "valid.employeeSurname.length");
         }
     }
 }

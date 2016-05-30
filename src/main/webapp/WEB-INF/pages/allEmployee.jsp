@@ -11,7 +11,7 @@
 <div class="container">
     <jsp:include page="topNavigationButtons.jsp" flush="true"/>
     <h1><p class="text-center">All Employees</p></h1>
-    <p <%--align="right"--%>><a class="btn btn-info btn-xs" href="//add/employee" role="button">add employee</a></p>
+    <p align="right"><a class="btn btn-info btn-xs" href="//add/employee" role="button">add employee</a></p>
     <table class="table">
         <thead>
         <tr>
@@ -25,8 +25,8 @@
             <thbody>
                 <tr>
                     <td>${employee.id}</td>
-                    <td>${employee.firstName}</td>
-                    <td>${employee.lastName}</td>
+                    <td>${employee.name}</td>
+                    <td>${employee.surname}</td>
                     <td>${employee.position}</td>
                     <td>
                         <p>

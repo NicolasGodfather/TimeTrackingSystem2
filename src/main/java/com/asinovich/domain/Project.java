@@ -25,10 +25,11 @@ public class Project {
     private String projectName;
 
     @Column (name = "responsibleEmployee")
+//    @ManyToMany
     private String responsibleEmployee;
 
     @Column (name = "listTask")
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "owner")
+//    @ManyToOne
     private List<Task> listTask;
 
     public long getId () {

@@ -16,14 +16,14 @@
 
         <div class="form-group">
             <form:input class="form-control" id="firstName" path="firstName" placeholder="Name"
-                        value="${employeeForm.firstName}"/>
+                        value="${employeeForm.name}"/>
             <form:errors path="firstName" cssStyle="color: #ff0000;"/>
         </div>
         <label>Last Name</label><br/>
 
         <div class="form-group">
             <form:input class="form-control" id="lastName" path="lastName" placeholder="Last Name"
-                        value="${employeeForm.lastName}"/>
+                        value="${employeeForm.surname}"/>
             <form:errors path="lastName" cssStyle="color: #ff0000;"/>
         </div>
         <input class="btn btn-success btn-xs" type="submit" value="save">

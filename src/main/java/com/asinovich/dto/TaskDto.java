@@ -5,7 +5,6 @@ import com.asinovich.domain.Task;
 import java.util.List;
 
 /**
- * Реализация
  *
  * @author Nicolas Asinovich.
  */

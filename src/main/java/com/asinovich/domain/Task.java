@@ -28,6 +28,7 @@ public class Task {
     private String responsibleEmployee;
 
     @Column (name = "listRecordSpentTime")
+//    @ManyToOne
     private List<RecordSpentTime> listRecordSpentTime;
 
     public long getId () {
