@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * Реализация проекта
+ * Реализация Проекта как Сущности
  * Проект содержит следующую информацию:
         1. Название.
         2. Ответственное за проект лицо.
@@ -24,10 +24,11 @@ public class Project {
     @Column (name = "projectName")
     private String projectName;
 
-    @Column (name = "employeeName")
-    private String employeeName;
+    @Column (name = "responsibleEmployee")
+    private String responsibleEmployee;
 
     @Column (name = "listTask")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "owner")
     private List<Task> listTask;
 
     public long getId () {
@@ -46,13 +47,12 @@ public class Project {
         this.projectName = projectName;
     }
 
-
-    public String getEmployeeName () {
-        return employeeName;
+    public String getResponsibleEmployee () {
+        return responsibleEmployee;
     }
 
-    public void setEmployeeName (String employeeName) {
-        this.employeeName = employeeName;
+    public void setResponsibleEmployee (String responsibleEmployee) {
+        this.responsibleEmployee = responsibleEmployee;
     }
 
     public List<Task> getListTask () {

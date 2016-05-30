@@ -1,6 +1,5 @@
 package com.asinovich.dto;
 
-import com.asinovich.domain.RecordSpentTime;
 import com.asinovich.domain.Task;
 
 import java.util.List;
@@ -10,24 +9,23 @@ import java.util.List;
  *
  * @author Nicolas Asinovich.
  */
-public class TaskDto {
+public class TaskDTO {
 
     private String id;
 
     private String taskName;
 
-    private String employee;
+    private String responsibleEmployee;
 
-    private List<RecordSpentTime> listRecordSpentTime;
+    private List<RecordSpentTimeDTO> recordSpentTimeDTOs;
 
-    public TaskDto (Task task) {
+    public TaskDTO (Task task) {
         this.id = Long.toString(task.getId());
         this.taskName = task.getTaskName();
-        this.employee = task.getEmployee();
-        this.listRecordSpentTime = task.getListRecordSpentTime();
+        this.responsibleEmployee = task.getResponsibleEmployee();
     }
 
-    public TaskDto () {
+    public TaskDTO () {
     }
 
     public String getId () {
@@ -46,19 +44,19 @@ public class TaskDto {
         this.taskName = taskName;
     }
 
-    public String getEmployee () {
-        return employee;
+    public String getResponsibleEmployee () {
+        return responsibleEmployee;
     }
 
-    public void setEmployee (String employee) {
-        this.employee = employee;
+    public void setResponsibleEmployee (String responsibleEmployee) {
+        this.responsibleEmployee = responsibleEmployee;
     }
 
-    public List<RecordSpentTime> getListRecordSpentTime () {
-        return listRecordSpentTime;
+    public List<RecordSpentTimeDTO> getRecordSpentTimeDTOs () {
+        return recordSpentTimeDTOs;
     }
 
-    public void setListRecordSpentTime (List<RecordSpentTime> listRecordSpentTime) {
-        this.listRecordSpentTime = listRecordSpentTime;
+    public void setRecordSpentTimeDTOs (List<RecordSpentTimeDTO> recordSpentTimeDTOs) {
+        this.recordSpentTimeDTOs = recordSpentTimeDTOs;
     }
 }

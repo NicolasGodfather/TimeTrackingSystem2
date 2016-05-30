@@ -9,7 +9,7 @@ import java.util.Calendar;
  *
  * @author Nicolas Asinovich.
  */
-public class RecordSpentTimeDto {
+public class RecordSpentTimeDTO {
 
     private String id;
 
@@ -19,14 +19,14 @@ public class RecordSpentTimeDto {
 
     private int numberOfHour;
 
-    public RecordSpentTimeDto (RecordSpentTime recordSpentTime) {
+    public RecordSpentTimeDTO (RecordSpentTime recordSpentTime) {
         this.id = Long.toString(recordSpentTime.getId());
         this.employeeName = recordSpentTime.getEmployeeName();
         this.calendarInsertRecord = recordSpentTime.getCalendarInsertRecord();
         this.numberOfHour = recordSpentTime.getNumberOfHour();
     }
 
-    public RecordSpentTimeDto () {
+    public RecordSpentTimeDTO () {
     }
 
     public String getId () {

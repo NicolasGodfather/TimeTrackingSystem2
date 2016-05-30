@@ -10,8 +10,8 @@ import com.asinovich.domain.Employee;
 public class EmployeeDTO {
 
     private String id;
-    private String firstName;
-    private String lastName;
+    private String name;
+    private String surname;
     private String position;
 
     public EmployeeDTO () {
@@ -19,8 +19,8 @@ public class EmployeeDTO {
 
     public EmployeeDTO (Employee employee) {
         this.id = Long.toString(employee.getId());
-        this.firstName = employee.getFirstName();
-        this.lastName = employee.getLastName();
+        this.name = employee.getName();
+        this.surname = employee.getSurname();
         this.position = employee.getPosition();
     }
 
@@ -32,20 +32,20 @@ public class EmployeeDTO {
         this.id = id;
     }
 
-    public String getFirstName () {
-        return firstName;
+    public String getName () {
+        return name;
     }
 
-    public void setFirstName (String firstName) {
-        this.firstName = firstName;
+    public void setName (String name) {
+        this.name = name;
     }
 
-    public String getLastName () {
-        return lastName;
+    public String getSurname () {
+        return surname;
     }
 
-    public void setLastName (String lastName) {
-        this.lastName = lastName;
+    public void setSurname (String surname) {
+        this.surname = surname;
     }
 
     public String getPosition () {

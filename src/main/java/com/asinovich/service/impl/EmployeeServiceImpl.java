@@ -1,9 +1,10 @@
-package com.asinovich.service;
+package com.asinovich.service.impl;
 
 import com.asinovich.dao.EmployeeDAO;
 import com.asinovich.domain.Employee;
 import com.asinovich.dto.ConverterDTOToDomain;
 import com.asinovich.dto.EmployeeDTO;
+import com.asinovich.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +18,8 @@ import java.util.List;
  * @author Nicolas Asinovich.
  */
 @Service
-public class EmployeeServiceImpl implements  EmployeeService {
+public class EmployeeServiceImpl implements EmployeeService {
+
     @Autowired
     private EmployeeDAO employeeDAO;
 

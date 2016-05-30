@@ -3,7 +3,7 @@ package com.asinovich.domain;
 import javax.persistence.*;
 
 /**
- * Реализация работника
+ * Реализация Работника как Сущности
  *
  * @author Nicolas Asinovich.
  */
@@ -16,11 +16,11 @@ public class Employee {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column (name = "firstName")
-    private String firstName;
+    @Column (name = "name")
+    private String name;
 
-    @Column (name = "lastName")
-    private String lastName;
+    @Column (name = "surname")
+    private String surname;
 
     @Column(name = "position")
     private String position;
@@ -36,20 +36,20 @@ public class Employee {
         this.id = id;
     }
 
-    public String getFirstName () {
-        return firstName;
+    public String getName () {
+        return name;
     }
 
-    public void setFirstName (String firstName) {
-        this.firstName = firstName;
+    public void setName (String name) {
+        this.name = name;
     }
 
-    public String getLastName () {
-        return lastName;
+    public String getSurname () {
+        return surname;
     }
 
-    public void setLastName (String lastName) {
-        this.lastName = lastName;
+    public void setSurname (String surname) {
+        this.surname = surname;
     }
 
     public String getPosition () {

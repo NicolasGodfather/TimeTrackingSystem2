@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * Реализация задачи как сущности
+ * Реализация Задачи как Сущности
  * Задача содержит следующую информацию:
         1. Название.
         2. Ответственное за задачу лицо.
@@ -24,8 +24,8 @@ public class Task {
     @Column (name = "taskName")
     private String taskName;
 
-    @Column (name = "employee")
-    private String employee;
+    @Column (name = "responsibleEmployee")
+    private String responsibleEmployee;
 
     @Column (name = "listRecordSpentTime")
     private List<RecordSpentTime> listRecordSpentTime;
@@ -46,12 +46,12 @@ public class Task {
         this.taskName = taskName;
     }
 
-    public String getEmployee () {
-        return employee;
+    public String getResponsibleEmployee () {
+        return responsibleEmployee;
     }
 
-    public void setEmployee (String employee) {
-        this.employee = employee;
+    public void setResponsibleEmployee (String responsibleEmployee) {
+        this.responsibleEmployee = responsibleEmployee;
     }
 
     public List<RecordSpentTime> getListRecordSpentTime () {

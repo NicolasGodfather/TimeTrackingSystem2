@@ -10,24 +10,23 @@ import java.util.List;
  *
  * @author Nicolas Asinovich.
  */
-public class ProjectDto {
+public class ProjectDTO {
 
     private String id;
 
     private String projectName;
 
-    private String employeeName;
+    private String responsibleEmployee;
 
-    private List<Task> listTask;
+    private List<TaskDTO> taskDTOs;
 
-    public ProjectDto () {
+    public ProjectDTO () {
     }
 
-    public ProjectDto (Project project) {
+    public ProjectDTO (Project project) {
         this.id = Long.toString(project.getId());
         this.projectName = project.getProjectName();
-        this.employeeName = project.getEmployeeName();
-        this.listTask = project.getListTask();
+        this.responsibleEmployee = project.getResponsibleEmployee();
     }
 
     public String getId () {
@@ -46,19 +45,19 @@ public class ProjectDto {
         this.projectName = projectName;
     }
 
-    public String getEmployeeName () {
-        return employeeName;
+    public String getResponsibleEmployee () {
+        return responsibleEmployee;
     }
 
-    public void setEmployeeName (String employeeName) {
-        this.employeeName = employeeName;
+    public void setResponsibleEmployee (String responsibleEmployee) {
+        this.responsibleEmployee = responsibleEmployee;
     }
 
-    public List<Task> getListTask () {
-        return listTask;
+    public List<TaskDTO> getTaskDTOs () {
+        return taskDTOs;
     }
 
-    public void setListTask (List<Task> listTask) {
-        this.listTask = listTask;
+    public void setTaskDTOs (List<TaskDTO> taskDTOs) {
+        this.taskDTOs = taskDTOs;
     }
 }

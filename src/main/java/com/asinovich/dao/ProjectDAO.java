@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 /**
- * Реализация
+ * Реализация поведения Проекта
  *
  * @author Nicolas Asinovich.
  */
