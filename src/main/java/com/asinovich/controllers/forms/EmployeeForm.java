@@ -8,6 +8,7 @@ import com.asinovich.dto.EmployeeDTO;
  * @author Nicolas Asinovich.
  */
 public class EmployeeForm {
+
     private String id;
     private String name;
     private String surname;
