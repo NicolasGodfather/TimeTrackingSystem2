@@ -1,7 +1,7 @@
 package com.asinovich.controllers.validator;
 
-import com.asinovich.controllers.forms.EmployeeForm;
 import com.asinovich.controllers.forms.ProjectForm;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
@@ -11,7 +11,9 @@ import org.springframework.validation.Validator;
  *
  * @author Nicolas Asinovich.
  */
+@Component
 public class ProjectFormValidator implements Validator {
+
     @Override
     public boolean supports (Class<?> aClass) {
         return ProjectForm.class.equals(aClass);
@@ -20,8 +22,8 @@ public class ProjectFormValidator implements Validator {
     @Override
     public void validate (Object o, Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "projectName", "valid.projectName.empty");
-        EmployeeForm message = (EmployeeForm) o;
-        if (message.getName().length() < 2 || message.getName().length() > 16) {
+        ProjectForm message = (ProjectForm) o;
+        if (message.getProjectName().length() < 4 || message.getProjectName().length() > 16) {
             errors.rejectValue("projectName", "valid.projectName.length");
         }
     }

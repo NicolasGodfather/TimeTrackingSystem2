@@ -13,6 +13,7 @@ import org.springframework.validation.Validator;
  */
 @Component
 public class EmployeeFormValidator implements Validator{
+
     @Override
     public boolean supports (Class<?> aClass) {
         return EmployeeForm.class.equals(aClass);
