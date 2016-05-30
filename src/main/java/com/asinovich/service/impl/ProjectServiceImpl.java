@@ -7,6 +7,7 @@ import com.asinovich.dto.ProjectDTO;
 import com.asinovich.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,11 +28,13 @@ public class ProjectServiceImpl implements ProjectService {
     private ConverterDTOToDomain converterDTOToDomain;
 
     @Override
+    @Transactional (readOnly = true)
     public ProjectDTO getById (long id) {
         return new ProjectDTO(projectDAO.findOne(id));
     }
 
     @Override
+    @Transactional (readOnly = true)
     public List<ProjectDTO> getAll () {
         List<Project> projects = projectDAO.findAll();
         List<ProjectDTO> projectDTOs = new ArrayList<>();
@@ -42,17 +45,21 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    @Transactional
     public void insert (ProjectDTO projectDTO) {
-
+        projectDAO.saveAndFlush(converterDTOToDomain.convertProjectDTOToTheProject(projectDTO));
     }
 
     @Override
+    @Transactional
     public void update (ProjectDTO projectDTO) {
-
+        projectDAO.saveAndFlush(converterDTOToDomain.convertProjectDTOToTheProject(projectDTO));
     }
 
     @Override
+    @Transactional
     public void deleteById (long id) {
-
+        Project project = projectDAO.findOne(id);
+        projectDAO.delete(project);
     }
 }

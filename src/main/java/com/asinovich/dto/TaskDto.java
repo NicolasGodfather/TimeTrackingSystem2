@@ -14,14 +14,14 @@ public class TaskDTO {
 
     private String taskName;
 
-    private String responsibleEmployee;
+    private EmployeeDTO responsibleEmployee;
 
     private List<RecordSpentTimeDTO> recordSpentTimeDTOs;
 
     public TaskDTO (Task task) {
         this.id = Long.toString(task.getId());
         this.taskName = task.getTaskName();
-        this.responsibleEmployee = task.getResponsibleEmployee();
+        this.responsibleEmployee = new EmployeeDTO(task.getResponsibleEmployee());
     }
 
     public TaskDTO () {
@@ -43,11 +43,11 @@ public class TaskDTO {
         this.taskName = taskName;
     }
 
-    public String getResponsibleEmployee () {
+    public EmployeeDTO getResponsibleEmployee () {
         return responsibleEmployee;
     }
 
-    public void setResponsibleEmployee (String responsibleEmployee) {
+    public void setResponsibleEmployee (EmployeeDTO responsibleEmployee) {
         this.responsibleEmployee = responsibleEmployee;
     }
 

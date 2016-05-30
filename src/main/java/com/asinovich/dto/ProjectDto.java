@@ -1,7 +1,6 @@
 package com.asinovich.dto;
 
 import com.asinovich.domain.Project;
-import com.asinovich.domain.Task;
 
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class ProjectDTO {
 
     private String projectName;
 
-    private String responsibleEmployee;
+    private EmployeeDTO responsibleEmployeeDTO;
 
     private List<TaskDTO> taskDTOs;
 
@@ -25,7 +24,7 @@ public class ProjectDTO {
     public ProjectDTO (Project project) {
         this.id = Long.toString(project.getId());
         this.projectName = project.getProjectName();
-        this.responsibleEmployee = project.getResponsibleEmployee();
+        this.responsibleEmployeeDTO = new EmployeeDTO(project.getResponsibleEmployee());
     }
 
     public String getId () {
@@ -44,12 +43,12 @@ public class ProjectDTO {
         this.projectName = projectName;
     }
 
-    public String getResponsibleEmployee () {
-        return responsibleEmployee;
+    public EmployeeDTO getResponsibleEmployeeDTO () {
+        return responsibleEmployeeDTO;
     }
 
-    public void setResponsibleEmployee (String responsibleEmployee) {
-        this.responsibleEmployee = responsibleEmployee;
+    public void setResponsibleEmployeeDTO (EmployeeDTO responsibleEmployeeDTO) {
+        this.responsibleEmployeeDTO = responsibleEmployeeDTO;
     }
 
     public List<TaskDTO> getTaskDTOs () {

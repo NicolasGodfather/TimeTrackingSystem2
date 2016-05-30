@@ -26,7 +26,7 @@ public class Project {
 
     @Column (name = "responsibleEmployee")
 //    @ManyToMany
-    private String responsibleEmployee;
+    private Employee responsibleEmployee;
 
     @Column (name = "listTask")
 //    @ManyToOne
@@ -48,11 +48,11 @@ public class Project {
         this.projectName = projectName;
     }
 
-    public String getResponsibleEmployee () {
+    public Employee getResponsibleEmployee () {
         return responsibleEmployee;
     }
 
-    public void setResponsibleEmployee (String responsibleEmployee) {
+    public void setResponsibleEmployee (Employee responsibleEmployee) {
         this.responsibleEmployee = responsibleEmployee;
     }
 

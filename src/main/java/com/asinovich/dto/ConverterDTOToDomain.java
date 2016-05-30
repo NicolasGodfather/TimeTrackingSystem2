@@ -64,7 +64,7 @@ public class ConverterDTOToDomain {
     }
     private void setProject (ProjectDTO projectDTO, Project project, List<Task> tasks) {
         project.setProjectName(projectDTO.getProjectName());
-        project.setResponsibleEmployee(projectDTO.getResponsibleEmployee());
+        project.setResponsibleEmployee(convertEmployeeDTOToTheEmployee(projectDTO.getResponsibleEmployeeDTO()));
         project.setListTask(tasks);
     }
 
@@ -95,7 +95,7 @@ public class ConverterDTOToDomain {
 
     private void setTask (TaskDTO taskDTO, Task task, List<RecordSpentTime> recordSpentTimes) {
         task.setTaskName(taskDTO.getTaskName());
-        task.setResponsibleEmployee(taskDTO.getResponsibleEmployee());
+        task.setResponsibleEmployee(convertEmployeeDTOToTheEmployee(taskDTO.getResponsibleEmployee()));
         task.setListRecordSpentTime(recordSpentTimes);
     }
 

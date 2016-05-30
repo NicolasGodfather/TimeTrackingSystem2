@@ -25,7 +25,7 @@ public class Task {
     private String taskName;
 
     @Column (name = "responsibleEmployee")
-    private String responsibleEmployee;
+    private Employee responsibleEmployee;
 
     @Column (name = "listRecordSpentTime")
 //    @ManyToOne
@@ -47,11 +47,11 @@ public class Task {
         this.taskName = taskName;
     }
 
-    public String getResponsibleEmployee () {
+    public Employee getResponsibleEmployee () {
         return responsibleEmployee;
     }
 
-    public void setResponsibleEmployee (String responsibleEmployee) {
+    public void setResponsibleEmployee (Employee responsibleEmployee) {
         this.responsibleEmployee = responsibleEmployee;
     }
 

@@ -19,7 +19,7 @@ public class TaskForm {
     public TaskForm (TaskDTO taskDTO) {
         this.id = taskDTO.getId();
         this.taskName = taskDTO.getTaskName();
-        this.responsibleEmployee = taskDTO.getResponsibleEmployee();
+        this.responsibleEmployee = taskDTO.getResponsibleEmployee().getId();
     }
 
     public String getId () {

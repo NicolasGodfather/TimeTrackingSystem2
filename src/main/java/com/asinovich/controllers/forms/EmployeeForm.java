@@ -59,8 +59,9 @@ public class EmployeeForm {
     @Override
     public String toString () {
         return "EmployeeForm{" +
-                "surname='" + surname + '\'' +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", position='" + position + '\'' +
                 '}';
     }
 }
