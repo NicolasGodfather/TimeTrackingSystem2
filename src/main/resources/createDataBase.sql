@@ -6,6 +6,7 @@ DROP TABLE IF EXISTS task;
 DROP TABLE IF EXISTS project;
 DROP TABLE IF EXISTS employee;
 
+
 CREATE TABLE employee (
   id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
   name varchar(45)                  NOT NULL,
@@ -32,10 +33,13 @@ CREATE TABLE task (
 CREATE TABLE recordSpentTime (
   id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
   employeeName varchar(45)          NOT NULL,
+  employeeNameId INT                NOT NULL,
   calendarInsertRecord varchar(45)  NOT NULL,
   numberOfHour varchar(45)          NOT NULL,
   recordSpentTimeId INT             NOT NULL,
-  FOREIGN KEY (recordSpentTimeId) REFERENCES task (id)
+  FOREIGN KEY (recordSpentTimeId) REFERENCES task (id),
+  FOREIGN KEY (employeeNameId) REFERENCES employee (id)
 );
+
 
 

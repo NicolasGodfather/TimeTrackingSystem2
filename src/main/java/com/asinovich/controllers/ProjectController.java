@@ -88,6 +88,14 @@ public class ProjectController {
         return projectDTO;
     }
 
+    @RequestMapping(value = "/delete/project/{id}", method = RequestMethod.GET)
+    public RedirectView deleteProject(@PathVariable(value = "id") Long id) {
+        projectService.deleteById(id);
+        return new RedirectView("/all/project");
+
+
+    }
+
     @RequestMapping(value = "/project/save/employee/{id}", method = RequestMethod.POST)
     public String addProjectEmployee(@PathVariable(value = "id") Long id,
                                      @Validated ProjectForm projectForm, BindingResult bindingResult, ModelMap model) {
@@ -109,11 +117,4 @@ public class ProjectController {
 //        purseService.insert(purseDTO);
         return "redirect:/";
     }
-
-    @RequestMapping(value = "/delete/project/{id}", method = RequestMethod.GET)
-    public RedirectView deleteProject(@PathVariable(value = "id") Long id) {
-        projectService.deleteById(id);
-        return new RedirectView("/all/project");
-    }
-
 }

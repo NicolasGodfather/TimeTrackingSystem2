@@ -27,6 +27,7 @@ public class TaskController {
     private static final String All_TASK = "allTask";
     private static final String SAVE_TASK = "saveTask";
     private static final String ERROR_PAGE = "errorPage";
+    private static final String APPOINT = "appointEmployeeToProject";
 
     @Autowired
     private TaskFormValidator taskFormValidator;

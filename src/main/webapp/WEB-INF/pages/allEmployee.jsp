@@ -17,7 +17,7 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Last Name</th>
+            <th>Surname</th>
             <th>Position</th>
             <th>Project</th>
             <th>Task</th>
