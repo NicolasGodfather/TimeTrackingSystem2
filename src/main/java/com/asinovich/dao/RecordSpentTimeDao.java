@@ -25,9 +25,9 @@ public interface RecordSpentTimeDAO extends CrudRepository<RecordSpentTime, Long
 
     void delete(RecordSpentTime recordSpentTime);
 
-    RecordSpentTimeDAO insertRecord();
-
-    RecordSpentTimeDAO shapeReport1(int firstDate, int secondDate);
-
-    RecordSpentTimeDAO shapeReport2(int numOfHour);
+//    RecordSpentTimeDAO insertRecord();
+//
+//    RecordSpentTimeDAO shapeReport1(int firstDate, int secondDate);
+//
+//    RecordSpentTimeDAO shapeReport2(int numOfHour);
 }
