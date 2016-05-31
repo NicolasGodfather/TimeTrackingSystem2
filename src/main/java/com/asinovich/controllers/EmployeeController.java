@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.view.RedirectView;
 
 /**
+ * TODO : still not finish
  *
  * @author Nicolas Asinovich.
  */
@@ -74,7 +75,7 @@ public class EmployeeController {
             employeeDTO.setId(employeeForm.getId());
             employeeService.update(employeeDTO);
         }
-        return "redirect:/all/employee";
+        return "redirect:/";
     }
 
     private EmployeeDTO getEmployeeDTO(@Validated EmployeeForm employeeForm) {

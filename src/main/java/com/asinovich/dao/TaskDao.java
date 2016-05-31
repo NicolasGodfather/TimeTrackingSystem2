@@ -12,11 +12,7 @@ import java.util.List;
  */
 public interface TaskDAO extends CrudRepository<Task, Long> {
 
-    Task findOne(Long id);
-
     List<Task> findAll();
 
     void saveAndFlush(Task task);
-
-    void delete(Task task);
 }

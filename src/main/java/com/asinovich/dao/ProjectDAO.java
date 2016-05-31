@@ -12,11 +12,7 @@ import java.util.List;
  */
 public interface ProjectDAO extends CrudRepository<Project, Long>{
 
-    Project findOne(Long id);
-
     List<Project> findAll();
 
     void saveAndFlush(Project project);
-
-    void delete(Project project);
 }

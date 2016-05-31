@@ -17,17 +17,7 @@ import java.util.List;
  */
 public interface RecordSpentTimeDAO extends CrudRepository<RecordSpentTime, Long> {
 
-    RecordSpentTime findOne(Long id);
-
     List<RecordSpentTime> findAll();
 
     void saveAndFlush(RecordSpentTime recordSpentTime);
-
-    void delete(RecordSpentTime recordSpentTime);
-
-//    RecordSpentTimeDAO insertRecord();
-//
-//    RecordSpentTimeDAO shapeReport1(int firstDate, int secondDate);
-//
-//    RecordSpentTimeDAO shapeReport2(int numOfHour);
 }
