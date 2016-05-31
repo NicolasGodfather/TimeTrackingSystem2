@@ -11,7 +11,7 @@
 <div class="container">
     <jsp:include page="topNavigationButtons.jsp" flush="true"/>
     <h1><p class="text-center">All Employees</p></h1>
-    <p align="right"><a class="btn btn-info btn-xs" href="//add/employee" role="button">add employee</a></p>
+    <p align="left"><a class="btn btn-sm btn-success" href="/add/employee" role="button">Add Employee</a></p>
     <table class="table">
         <thead>
         <tr>
@@ -19,6 +19,9 @@
             <th>Name</th>
             <th>Last Name</th>
             <th>Position</th>
+            <th>Project</th>
+            <th>Task</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <c:forEach var="employee" items="${employees}">
@@ -28,10 +31,13 @@
                     <td>${employee.name}</td>
                     <td>${employee.surname}</td>
                     <td>${employee.position}</td>
+                    <td><%--${employee.project}--%></td>
+                    <td><%--${employee.task}--%></td>
                     <td>
                         <p>
-                            <a class="btn btn-danger btn-xs" href="/delete/employee/${employee.id}" role="button">delete</a>
-                            <a class="btn btn-default btn-xs" href="/save/employee/${employee.id}" role="button">edit</a>
+                            <a class="btn btn-info btn-xs" href="/appoint/employee/${employee.id}" role="button">Appoint</a>
+                            <a class="btn btn-xs btn-default" href="/save/employee/${employee.id}" role="button">Edit</a>
+                            <a class="btn btn-xs btn-danger" href="/delete/employee/${employee.id}" role="button">Delete</a>
                         </p>
                     </td>
                 </tr>
