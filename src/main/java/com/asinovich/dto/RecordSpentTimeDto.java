@@ -16,13 +16,13 @@ public class RecordSpentTimeDTO {
 
     private Calendar calendarInsertRecord;
 
-    private int numberOfHour;
+    private String numberOfHour;
 
     public RecordSpentTimeDTO (RecordSpentTime recordSpentTime) {
         this.id = Long.toString(recordSpentTime.getId());
         this.employeeName = recordSpentTime.getEmployeeName();
         this.calendarInsertRecord = recordSpentTime.getCalendarInsertRecord();
-        this.numberOfHour = recordSpentTime.getNumberOfHour();
+        this.numberOfHour = Integer.toString(recordSpentTime.getNumberOfHour());
     }
 
     public RecordSpentTimeDTO () {
@@ -52,11 +52,11 @@ public class RecordSpentTimeDTO {
         this.calendarInsertRecord = calendarInsertRecord;
     }
 
-    public int getNumberOfHour () {
+    public String getNumberOfHour () {
         return numberOfHour;
     }
 
-    public void setNumberOfHour (int numberOfHour) {
+    public void setNumberOfHour (String numberOfHour) {
         this.numberOfHour = numberOfHour;
     }
 }

@@ -3,7 +3,6 @@ package com.asinovich.controllers.forms;
 import com.asinovich.dto.RecordSpentTimeDTO;
 
 /**
- * Реализация
  *
  * @author Nicolas Asinovich.
  */

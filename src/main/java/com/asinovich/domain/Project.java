@@ -21,12 +21,11 @@ public class Project {
 
     private String projectName;
 
-    @ManyToMany
-    @JoinColumn(name = "responsibleEmployeeId")
+    @ManyToOne
+    @JoinColumn(name = "projectId")
     private Employee responsibleEmployee;
 
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="owner")
-    @JoinColumn(name = "responsibleEmployeeId")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Task> listTask;
 
     public long getId () {

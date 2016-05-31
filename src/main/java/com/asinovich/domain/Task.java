@@ -21,12 +21,11 @@ public class Task {
 
     private String taskName;
 
-//    @ManyToMany
-//    @JoinColumn(name = "responsibleEmployeeId")
+    @ManyToOne
+    @JoinColumn(name = "taskId")
     private Employee responsibleEmployee;
 
-//    @ManyToOne
-//    @JoinColumn(name = "responsibleEmployeeId")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<RecordSpentTime> listRecordSpentTime;
 
     public long getId () {

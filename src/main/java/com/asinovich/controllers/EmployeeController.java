@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.view.RedirectView;
 
 /**
- * Реализация
  *
  * @author Nicolas Asinovich.
  */
@@ -39,7 +38,7 @@ public class EmployeeController {
         binder.setValidator(employeeFormValidator);
     }
 
-    @RequestMapping(value = "all/employee", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String showAllEmployees(ModelMap modelMap) {
         modelMap.addAttribute("employees", employeeService.getAll());
         return All_EMPLOYEE;

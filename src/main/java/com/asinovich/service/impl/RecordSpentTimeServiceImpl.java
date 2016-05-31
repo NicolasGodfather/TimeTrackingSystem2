@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Реализация
+ * TODO : still not finish
  *
  * @author Nicolas Asinovich.
  */
