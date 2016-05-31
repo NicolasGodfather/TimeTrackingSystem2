@@ -34,7 +34,6 @@
             <form:errors path="position" cssStyle="color: #ff0000;"/>
         </div>
 
-
         <input class="btn btn-success btn-xs" type="submit" value="save">
         <a class="btn btn-default btn-xs" href="/" role="button">cancel</a>
     </form:form>

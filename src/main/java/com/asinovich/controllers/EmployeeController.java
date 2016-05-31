@@ -82,13 +82,14 @@ public class EmployeeController {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setName(employeeForm.getName());
         employeeDTO.setSurname(employeeForm.getSurname());
+        employeeDTO.setPosition(employeeForm.getPosition());
         return employeeDTO;
     }
 
     @RequestMapping(value = "/delete/employee/{id}", method = RequestMethod.GET)
     public RedirectView deleteEmployee(@PathVariable(value = "id") Long id) {
         employeeService.deleteById(id);
-        return new RedirectView("/all/employee");
+        return new RedirectView("/");
     }
 
 }

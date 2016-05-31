@@ -2,7 +2,9 @@ package com.asinovich.controllers;
 
 import com.asinovich.controllers.forms.ProjectForm;
 import com.asinovich.controllers.validator.ProjectFormValidator;
+import com.asinovich.dto.EmployeeDTO;
 import com.asinovich.dto.ProjectDTO;
+import com.asinovich.service.EmployeeService;
 import com.asinovich.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,11 +29,14 @@ public class ProjectController {
     private static final String All_PROJECT = "allProject";
     private static final String SAVE_PROJECT = "saveProject";
     private static final String ERROR_PAGE = "errorPage";
+    private static final String APPOINT = "appointEmployeeToProject";
 
     @Autowired
     private ProjectFormValidator projectFormValidator;
     @Autowired
     private ProjectService projectService;
+    @Autowired
+    private EmployeeService employeeService;
 
     @InitBinder
     private void initBinder(WebDataBinder binder) {
@@ -81,6 +86,28 @@ public class ProjectController {
         ProjectDTO projectDTO = new ProjectDTO();
         projectDTO.setProjectName(projectForm.getProjectName());
         return projectDTO;
+    }
+
+    @RequestMapping(value = "/project/save/employee/{id}", method = RequestMethod.POST)
+    public String addProjectEmployee(@PathVariable(value = "id") Long id,
+                                     @Validated ProjectForm projectForm, BindingResult bindingResult, ModelMap model) {
+        EmployeeDTO employeeDTO = employeeService.getById(id);
+        if (bindingResult.hasErrors()) {
+            if (employeeDTO == null) {
+                return ERROR_PAGE;
+            }
+            model.addAttribute("ownerId", employeeDTO.getId());
+            model.addAttribute("currencies", employeeService.getAll());
+            return APPOINT;
+        }
+//        CurrencyDTO currencyDTO = currencyService.getById(Long.parseLong(purseForm.getCurrencyId()));
+//        PurseDTO purseDTO = new PurseDTO();
+//        purseDTO.setName(purseForm.getName());
+//        purseDTO.setCurrencyDTO(currencyDTO);
+//        purseDTO.setOwnerDTO(userDTO);
+//        purseDTO.setAmount(purseForm.getAmount());
+//        purseService.insert(purseDTO);
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/delete/project/{id}", method = RequestMethod.GET)
