@@ -12,29 +12,36 @@
     <h1><p class="text-center">Save Employee</p></h1>
     <form:form method="post" action="/save/employee" commandName="employeeForm">
         <form:input class="form-control" id="id" path="id" value="${employeeForm.id}" type="hidden"/>
+
         <label>Name</label><br/>
-
         <div class="form-group">
-            <form:input class="form-control" id="firstName" path="firstName" placeholder="Name"
+            <form:input class="form-control" id="name" path="name" placeholder="Name"
                         value="${employeeForm.name}"/>
-            <form:errors path="firstName" cssStyle="color: #ff0000;"/>
+            <form:errors path="name" cssStyle="color: #ff0000;"/>
         </div>
-        <label>Last Name</label><br/>
 
+        <label>Surname</label><br/>
         <div class="form-group">
-            <form:input class="form-control" id="lastName" path="lastName" placeholder="Last Name"
+            <form:input class="form-control" id="surname" path="surname" placeholder="Surname"
                         value="${employeeForm.surname}"/>
-            <form:errors path="lastName" cssStyle="color: #ff0000;"/>
+            <form:errors path="surname" cssStyle="color: #ff0000;"/>
         </div>
-        <input class="btn btn-success btn-xs" type="submit" value="save">
 
         <label>Position</label><br/>
-
         <div class="form-group">
             <form:input class="form-control" id="position" path="position" placeholder="Position"
                         value="${employeeForm.position}"/>
             <form:errors path="position" cssStyle="color: #ff0000;"/>
         </div>
+
+        <label>Position</label><br/>
+        <div class="form-group">
+            <form:input class="form-control" id="position" path="position" placeholder="Position"
+                        value="${employeeForm.position}"/>
+            <form:errors path="position" cssStyle="color: #ff0000;"/>
+        </div>
+
+
         <input class="btn btn-success btn-xs" type="submit" value="save">
         <a class="btn btn-default btn-xs" href="/" role="button">cancel</a>
     </form:form>
