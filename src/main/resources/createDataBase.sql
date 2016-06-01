@@ -17,29 +17,26 @@ CREATE TABLE employee (
 CREATE TABLE project (
   id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
   projectName varchar(45)           NOT NULL,
-  responsibleEmployee varchar(45)   NOT NULL,
-  projectId INT                     NOT NULL,
-  FOREIGN KEY (projectId) REFERENCES employee (id)
+  responsibleEmployee INT           NOT NULL REFERENCES employee (id)
 );
 
 CREATE TABLE task (
   id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
   taskName varchar(45)              NOT NULL,
-  responsibleEmployee varchar(45)   NOT NULL,
-  taskId INT                        NOT NULL,
-  FOREIGN KEY (taskId) REFERENCES employee (id)
+#   projectName INT                   NOT NULL REFERENCES project  (id),
+  responsibleEmployee INT           NOT NULL REFERENCES employee (id)
 );
 
 CREATE TABLE recordSpentTime (
   id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
   employeeName varchar(45)          NOT NULL,
-  employeeNameId INT                NOT NULL,
   calendarInsertRecord varchar(45)  NOT NULL,
   numberOfHour varchar(45)          NOT NULL,
-  recordSpentTimeId INT             NOT NULL,
-  FOREIGN KEY (recordSpentTimeId) REFERENCES task (id),
-  FOREIGN KEY (employeeNameId) REFERENCES employee (id)
+  employeeNameId INT                NOT NULL REFERENCES employee (id),
+  recordSpentTimeId INT             NOT NULL REFERENCES task (id)
 );
+
+# SELECT * FROM project LEFT JOIN employee USING(id);
 
 
 

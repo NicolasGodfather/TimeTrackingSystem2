@@ -45,7 +45,7 @@ public class TaskController {
         return All_TASK;
     }
 
-    @RequestMapping(value = "/add/task", method = RequestMethod.GET)
+    @RequestMapping(value = "/save/task", method = RequestMethod.GET)
     public String showPageAddTask(ModelMap modelMap) {
         modelMap.addAttribute("taskForm", new TaskForm());
         return SAVE_TASK;

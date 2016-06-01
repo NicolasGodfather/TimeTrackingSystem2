@@ -13,7 +13,6 @@ import java.util.List;
  */
 public interface EmployeeDAO extends CrudRepository<Employee, Long> {
 
-
     List<Employee> findAll();
 
     void saveAndFlush(Employee employee);

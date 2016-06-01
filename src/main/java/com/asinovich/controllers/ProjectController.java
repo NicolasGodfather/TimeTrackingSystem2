@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.List;
+
 /**
  * TODO : still not finish
  *
@@ -49,9 +51,10 @@ public class ProjectController {
         return All_PROJECT;
     }
 
-    @RequestMapping(value = "/add/project", method = RequestMethod.GET)
+    @RequestMapping(value = "/save/project", method = RequestMethod.GET)
     public String showPageAddProject(ModelMap modelMap) {
-        modelMap.addAttribute("projectForm", new ProjectForm());
+        List<ProjectDTO> projectDTOs = projectService.getAll();
+        modelMap.addAttribute("projectForm", projectDTOs);
         return SAVE_PROJECT;
     }
 
@@ -96,7 +99,7 @@ public class ProjectController {
 
     }
 
-    @RequestMapping(value = "/project/save/employee/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/project/appoint/employee/{id}", method = RequestMethod.POST)
     public String addProjectEmployee(@PathVariable(value = "id") Long id,
                                      @Validated ProjectForm projectForm, BindingResult bindingResult, ModelMap model) {
         EmployeeDTO employeeDTO = employeeService.getById(id);
@@ -104,8 +107,7 @@ public class ProjectController {
             if (employeeDTO == null) {
                 return ERROR_PAGE;
             }
-            model.addAttribute("ownerId", employeeDTO.getId());
-            model.addAttribute("currencies", employeeService.getAll());
+            model.addAttribute("employees", employeeDTO.getId());
             return APPOINT;
         }
 //        CurrencyDTO currencyDTO = currencyService.getById(Long.parseLong(purseForm.getCurrencyId()));
@@ -115,6 +117,10 @@ public class ProjectController {
 //        purseDTO.setOwnerDTO(userDTO);
 //        purseDTO.setAmount(purseForm.getAmount());
 //        purseService.insert(purseDTO);
-        return "redirect:/";
+        ProjectDTO projectDTO = new ProjectDTO();
+        projectDTO.setProjectName(projectForm.getProjectName());
+        projectDTO.setResponsibleEmployeeDTO(employeeDTO);
+        projectService.insert(projectDTO);
+        return "redirect:/all/project";
     }
 }

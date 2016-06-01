@@ -16,7 +16,6 @@ import java.util.Calendar;
 @Entity
 public class RecordSpentTime {
     @Id
-    @Column (name = "id")
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 

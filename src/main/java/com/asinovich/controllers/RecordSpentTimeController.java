@@ -44,7 +44,7 @@ public class RecordSpentTimeController {
         return All_RECORDSPENTTIME;
     }
 
-    @RequestMapping(value = "/add/recordSpentTime", method = RequestMethod.GET)
+    @RequestMapping(value = "/save/recordSpentTime", method = RequestMethod.GET)
     public String showPageAddRecordSpentTime(ModelMap modelMap) {
         modelMap.addAttribute("recordSpentTimeForm", new RecordSpentTimeForm());
         return SAVE_RECORDSPENTTIME;

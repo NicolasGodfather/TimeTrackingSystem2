@@ -22,10 +22,10 @@ public class Task {
     private String taskName;
 
     @ManyToOne
-    @JoinColumn(name = "taskId")
+    @JoinColumn(name = "responsibleEmployee")
     private Employee responsibleEmployee;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<RecordSpentTime> listRecordSpentTime;
 
     public long getId () {

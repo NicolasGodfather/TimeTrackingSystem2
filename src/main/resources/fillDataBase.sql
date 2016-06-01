@@ -7,9 +7,15 @@ insert into time.employee (id, name, surname, position) value('6','Arkadiy', 'Ku
 insert into time.employee (id, name, surname, position) value('7','Dmitriy', 'Stolbunov', 'developer' );
 insert into time.employee (id, name, surname, position) value('8','Aleksandr', 'Budnikov' , 'developer' );
 
-insert into time.project (projectName, responsibleEmployee) values ( 'Clinic', 'Chuck Norris' );
-insert into time.project (projectName, responsibleEmployee) values ( 'AutoService', 'Jackie Chan' );
+insert into time.project (projectName, responsibleEmployee) values ( 'Clinic' , '1');
+insert into time.project (projectName, responsibleEmployee) values ( 'AutoService', '2');
+insert into time.project (projectName, responsibleEmployee) values ( 'TV-NEWS', '7');
+insert into time.project (projectName, responsibleEmployee) values ( 'Family Health', '3');
 
-insert into time.task (taskName, responsibleEmployee) values ( 'add new functional', 'Nicolas Asinovich' );
-insert into time.task (taskName, responsibleEmployee) values ( 'make design new pages', 'Anna Rosolko' );
+insert into time.task (taskName, responsibleEmployee) values ( 'add new functional', '3' );
+insert into time.task (taskName, responsibleEmployee) values ( 'make design new pages', '5' );
+insert into time.task (taskName, responsibleEmployee) values ( 'make advt', '4' );
+insert into time.task (taskName, responsibleEmployee) values ( 'make design new pages', '4' );
+insert into time.task (taskName, responsibleEmployee) values ( 'make design new pages', '4' );
+insert into time.task (taskName, responsibleEmployee) values ( 'make design new pages', '4' );
 

@@ -18,46 +18,21 @@
             <form:input class="form-control" id="name" path="name" placeholder="Name" value="${employeeForm.name}"/>
             <form:errors path="name" cssStyle="color: #ff0000;"/>
         </div>
-        <div>
-            <label>Currency</label>
-            <form:select path="currencyId" class="form-control">
-                <c:forEach var="currency" items="${currencies}">
-                    <option value="${currency.id}">${currency.name}</option>
-                </c:forEach>
-            </form:select>
-        </div>
-        <div class="form-group">
-            <label>Amount</label>
-            <form:input class="form-control" id="name" path="amount" placeholder="Amount"
-                        value="${editPurse.amount}"/>
-            <form:errors path="amount" cssStyle="color: #ff0000;"/>
-        </div>
 
         <table class="table">
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Position</th>
-                <th>Project</th>
-                <th>Task</th>
+                <th>Full Name</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <c:forEach var="employee" items="${employees}">
                 <thbody>
                     <tr>
-                        <td>${employee.id}</td>
-                        <td>${employee.name}</td>
-                        <td>${employee.surname}</td>
-                        <td>${employee.position}</td>
-                        <td><%--${employee.project}--%></td>
-                        <td><%--${employee.task}--%></td>
+                        <td>${employee.name}+" "+${employee.surname}</td>
                         <td>
                             <p>
                                 <a class="btn btn-info btn-xs" href="/appoint/employee/${employee.id}" role="button">Appoint</a>
-                                <a class="btn btn-xs btn-default" href="/save/employee/${employee.id}" role="button">Edit</a>
-                                <a class="btn btn-xs btn-danger" href="/delete/employee/${employee.id}" role="button">Delete</a>
                             </p>
                         </td>
                     </tr>

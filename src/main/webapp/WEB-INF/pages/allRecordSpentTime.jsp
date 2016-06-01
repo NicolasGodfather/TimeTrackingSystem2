@@ -11,7 +11,7 @@
 <div class="container">
     <jsp:include page="topNavigationButtons.jsp" flush="true"/>
     <h1><p class="text-center">All Records Spent Time</p></h1>
-    <p align="center"><a class="btn btn-sm btn-success" href="/add/recordSpentTime" role="button">All Records Spent Time</a></p>
+    <p align="center"><a class="btn btn-sm btn-success" href="save/recordSpentTime" role="button">All Records Spent Time</a></p>
     <table class="table">
         <thead>
         <tr>
@@ -30,7 +30,6 @@
                     <td>${recordSpentTime.numberOfHour}</td>
                     <td>
                         <p>
-                            <a class="btn btn-info btn-xs" href="/appoint/recordSpentTime/${recordSpentTime.id}" role="button">Appoint</a>
                             <a class="btn btn-xs btn-default" href="/save/recordSpentTime/${recordSpentTime.id}" role="button">Edit</a>
                             <a class="btn btn-xs btn-danger" href="/delete/recordSpentTime/${recordSpentTime.id}" role="button">Delete</a>
                         </p>

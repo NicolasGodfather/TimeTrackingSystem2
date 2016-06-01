@@ -11,8 +11,7 @@
 <div class="container">
     <jsp:include page="topNavigationButtons.jsp" flush="true"/>
     <h1><p class="text-center">All Projects</p></h1>
-    <p align="center"><a class="btn btn-sm btn-success" href="/add/project" role="button">Add Projects</a></p>
-
+    <p align="center"><a class="btn btn-sm btn-success" href="/save/project" role="button">Add Projects</a></p>
     <table class="table">
         <thead>
         <tr>
@@ -28,13 +27,13 @@
                 <tr>
                     <td>${project.id}</td>
                     <td>${project.projectName}</td>
-                    <td>${project.responsibleEmployeeDTO}</td>
-                    <td>${project.taskDTOs}</td>
+                    <td>${project.responsibleEmployeeDTO.name} ${project.responsibleEmployeeDTO.surname}</td>
+                    <td><a href="all/tasks/${project.taskDTOs}" role="button">View tasks</a></td>
                     <td>
                         <p>
-                            <a class="btn btn-info btn-xs" href="/appoint/project/${project.id}" role="button">Appoint</a>
+                            <a class="btn btn-info btn-xs" href="/project/appoint/employee/{id}${project.id}" role="button">Appoint</a>
                             <a class="btn btn-xs btn-default" href="/save/project/${project.id}" role="button">Edit</a>
-                            <a class="btn btn-xs btn-danger" href="/delete/project/${project.id}" role="button">Delete</a>
+                            <a class="btn btn-xs btn-danger" href="/delete/project/${project.taskDTOs}" role="button">Delete</a>
                         </p>
                     </td>
                 </tr>

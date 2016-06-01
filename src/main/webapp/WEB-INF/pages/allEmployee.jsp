@@ -19,8 +19,6 @@
             <th>Name</th>
             <th>Surname</th>
             <th>Position</th>
-            <th>Project</th>
-            <th>Task</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -31,11 +29,9 @@
                     <td>${employee.name}</td>
                     <td>${employee.surname}</td>
                     <td>${employee.position}</td>
-                    <td><%--${employee.project}--%></td>
-                    <td><%--${employee.task}--%></td>
                     <td>
                         <p>
-                            <a class="btn btn-info btn-xs" href="/appoint/employee/${employee.id}" role="button">Appoint</a>
+                            <a class="btn btn-info btn-xs" href="/project/appoint/employee/{id}${employee.id}" role="button">Appoint</a>
                             <a class="btn btn-xs btn-default" href="/save/employee/${employee.id}" role="button">Edit</a>
                             <a class="btn btn-xs btn-danger" href="/delete/employee/${employee.id}" role="button">Delete</a>
                         </p>
