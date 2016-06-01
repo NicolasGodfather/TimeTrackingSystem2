@@ -11,7 +11,7 @@
 <div class="container">
     <jsp:include page="topNavigationButtons.jsp" flush="true"/>
     <h1><p class="text-center">All Records Spent Time</p></h1>
-    <p align="center"><a class="btn btn-sm btn-success" href="save/recordSpentTime" role="button">All Records Spent Time</a></p>
+    <p align="center"><a class="btn btn-sm btn-success" href="/add/recordSpentTime" role="button">All Records Spent Time</a></p>
     <table class="table">
         <thead>
         <tr>

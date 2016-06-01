@@ -11,7 +11,7 @@
 <div class="container">
     <jsp:include page="topNavigationButtons.jsp" flush="true"/>
     <h1><p class="text-center">All Tasks</p></h1>
-    <p align="center"><a class="btn btn-sm btn-success" href="/save/task" role="button">Add Task</a></p>
+    <p align="center"><a class="btn btn-sm btn-success" href="/add/task" role="button">Add Task</a></p>
     <table class="table">
         <thead>
         <tr>
@@ -22,13 +22,13 @@
             <th>Actions</th>
         </tr>
         </thead>
-        <c:forEach var="task" items="${task}">
+        <c:forEach var="task" items="${tasks}">
             <thbody>
                 <tr>
                     <td>${task.id}</td>
                     <td>${task.taskName}</td>
-                    <td>${task.responsibleEmployeeDTO}</td>
-                    <td>${task.taskDTOs}</td>
+                    <td>${task.responsibleEmployee.name} ${task.responsibleEmployee.surname}</td>
+                    <td><a href="all/recordSpentTime/${task.recordSpentTimeDTOs}" role="button">View All Records</a></td>
                     <td>
                         <p>
                             <a class="btn btn-info btn-xs" href="/appoint/task/${task.id}" role="button">Appoint</a>

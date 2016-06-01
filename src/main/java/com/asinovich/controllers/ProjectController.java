@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.util.List;
-
 /**
  * TODO : still not finish
  *
@@ -51,10 +49,10 @@ public class ProjectController {
         return All_PROJECT;
     }
 
-    @RequestMapping(value = "/save/project", method = RequestMethod.GET)
+    @RequestMapping(value = "/add/project", method = RequestMethod.GET)
     public String showPageAddProject(ModelMap modelMap) {
-        List<ProjectDTO> projectDTOs = projectService.getAll();
-        modelMap.addAttribute("projectForm", projectDTOs);
+//        List<ProjectDTO> projectDTOs = projectService.getAll();
+        modelMap.addAttribute("projectForm", new ProjectForm());
         return SAVE_PROJECT;
     }
 

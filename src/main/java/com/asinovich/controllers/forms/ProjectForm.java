@@ -18,6 +18,7 @@ public class ProjectForm {
     public ProjectForm (ProjectDTO projectDTO) {
         this.id = projectDTO.getId();
         this.projectName = projectDTO.getProjectName();
+        this.responsibleEmployee = projectDTO.getResponsibleEmployeeDTO().getId();
     }
 
     public String getId () {

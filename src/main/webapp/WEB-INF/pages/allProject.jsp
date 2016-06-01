@@ -11,7 +11,7 @@
 <div class="container">
     <jsp:include page="topNavigationButtons.jsp" flush="true"/>
     <h1><p class="text-center">All Projects</p></h1>
-    <p align="center"><a class="btn btn-sm btn-success" href="/save/project" role="button">Add Projects</a></p>
+    <p align="center"><a class="btn btn-sm btn-success" href="/add/project" role="button">Add Projects</a></p>
     <table class="table">
         <thead>
         <tr>

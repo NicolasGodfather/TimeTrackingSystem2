@@ -41,11 +41,11 @@ public class TaskController {
 
     @RequestMapping (value = "all/task", method = RequestMethod.GET)
     public String showAllTask(ModelMap modelMap) {
-        modelMap.addAttribute("task", taskService.getAll());
+        modelMap.addAttribute("tasks", taskService.getAll());
         return All_TASK;
     }
 
-    @RequestMapping(value = "/save/task", method = RequestMethod.GET)
+    @RequestMapping(value = "/add/task", method = RequestMethod.GET)
     public String showPageAddTask(ModelMap modelMap) {
         modelMap.addAttribute("taskForm", new TaskForm());
         return SAVE_TASK;

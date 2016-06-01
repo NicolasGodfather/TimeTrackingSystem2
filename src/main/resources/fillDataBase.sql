@@ -15,7 +15,8 @@ insert into time.project (projectName, responsibleEmployee) values ( 'Family Hea
 insert into time.task (taskName, responsibleEmployee) values ( 'add new functional', '3' );
 insert into time.task (taskName, responsibleEmployee) values ( 'make design new pages', '5' );
 insert into time.task (taskName, responsibleEmployee) values ( 'make advt', '4' );
-insert into time.task (taskName, responsibleEmployee) values ( 'make design new pages', '4' );
-insert into time.task (taskName, responsibleEmployee) values ( 'make design new pages', '4' );
-insert into time.task (taskName, responsibleEmployee) values ( 'make design new pages', '4' );
+insert into time.task (taskName, responsibleEmployee) values ( 'come up new functional', '6' );
+insert into time.task (taskName, responsibleEmployee) values ( 'develop new system', '7' );
+insert into time.task (taskName, responsibleEmployee) values ( 'develop new system', '8' );
+insert into time.task (taskName, responsibleEmployee) values ( 'implement all', '3' );
 
