@@ -17,7 +17,7 @@
         <div class="form-group">
             <form:input class="form-control" id="taskName" path="taskName" placeholder="Task Name"
                         value="${taskForm.taskName}"/>
-            <form:errors path="name" cssStyle="color: #ff0000;"/>
+            <form:errors path="taskName" cssStyle="color: #ff0000;"/>
         </div>
 
         <input class="btn btn-success btn-xs" type="submit" value="save">

@@ -19,11 +19,17 @@ public class RecordSpentTime {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String employeeName;
-
     private Calendar calendarInsertRecord;
 
     private int numberOfHour;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "employeeNameId")
+    private String employeeName;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "nameTaskId")
+    private Task nameTask;
 
     public long getId () {
         return id;
@@ -55,5 +61,13 @@ public class RecordSpentTime {
 
     public void setNumberOfHour (int numberOfHour) {
         this.numberOfHour = numberOfHour;
+    }
+
+    public Task getNameTask () {
+        return nameTask;
+    }
+
+    public void setNameTask (Task nameTask) {
+        this.nameTask = nameTask;
     }
 }

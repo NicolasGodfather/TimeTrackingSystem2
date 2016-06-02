@@ -17,7 +17,7 @@
         <div class="form-group">
             <form:input class="form-control" id="numberOfHour" path="numberOfHour" placeholder="Number Of Hour"
                         value="${recordSpentTimeForm.numberOfHour}"/>
-            <form:errors path="name" cssStyle="color: #ff0000;"/>
+            <form:errors path="numberOfHour" cssStyle="color: #ff0000;"/>
         </div>
 
         <input class="btn btn-success btn-xs" type="submit" value="save">

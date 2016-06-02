@@ -1,9 +1,17 @@
 package com.asinovich.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Реализация Работника как Сущности
+ *
+ * Работник содержит следующую информацию:
+        1. Имя
+        2. Фамилия
+        3. Должность
+        4. Список проектов
+        5. Список задач
  *
  * @author Nicolas Asinovich.
  */
@@ -19,6 +27,12 @@ public class Employee {
     private String surname;
 
     private String position;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "responsibleEmployee")
+    private List<Project> projects;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "responsibleEmployee")
+    private List<Task> tasks;
 
     public Employee () {
     }
@@ -53,5 +67,21 @@ public class Employee {
 
     public void setPosition (String position) {
         this.position = position;
+    }
+
+    public List<Project> getProjects () {
+        return projects;
+    }
+
+    public void setProjects (List<Project> projects) {
+        this.projects = projects;
+    }
+
+    public List<Task> getTasks () {
+        return tasks;
+    }
+
+    public void setTasks (List<Task> tasks) {
+        this.tasks = tasks;
     }
 }

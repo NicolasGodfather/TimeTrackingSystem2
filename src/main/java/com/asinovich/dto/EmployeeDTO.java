@@ -2,6 +2,8 @@ package com.asinovich.dto;
 
 import com.asinovich.domain.Employee;
 
+import java.util.List;
+
 /**
  *
  * @author Nicolas Asinovich.
@@ -12,6 +14,8 @@ public class EmployeeDTO {
     private String name;
     private String surname;
     private String position;
+    private List<ProjectDTO> projectDTOs;
+    private List<TaskDTO> taskDTOs;
 
     public EmployeeDTO () {
     }
@@ -53,5 +57,21 @@ public class EmployeeDTO {
 
     public void setPosition (String position) {
         this.position = position;
+    }
+
+    public List<ProjectDTO> getProjectDTOs () {
+        return projectDTOs;
+    }
+
+    public void setProjectDTOs (List<ProjectDTO> projectDTOs) {
+        this.projectDTOs = projectDTOs;
+    }
+
+    public List<TaskDTO> getTaskDTOs () {
+        return taskDTOs;
+    }
+
+    public void setTaskDTOs (List<TaskDTO> taskDTOs) {
+        this.taskDTOs = taskDTOs;
     }
 }

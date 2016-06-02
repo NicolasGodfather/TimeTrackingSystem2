@@ -19,13 +19,15 @@ public class Project {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "responsibleEmployeeId")
     private String projectName;
 
-    @ManyToOne
-    @JoinColumn(name = "responsibleEmployee")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "responsibleEmployeeId")
     private Employee responsibleEmployee;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "taskOfProject")
     private List<Task> listTask;
 
     public long getId () {

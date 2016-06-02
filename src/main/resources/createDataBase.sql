@@ -17,14 +17,15 @@ CREATE TABLE employee (
 CREATE TABLE project (
   id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
   projectName varchar(45)           NOT NULL,
-  responsibleEmployee INT           NOT NULL REFERENCES employee (id)
+  responsibleEmployeeId INT         NOT NULL REFERENCES employee (id)
 );
 
 CREATE TABLE task (
   id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
   taskName varchar(45)              NOT NULL,
-#   projectName INT                   NOT NULL REFERENCES project  (id),
-  responsibleEmployee INT           NOT NULL REFERENCES employee (id)
+  taskOfProjectId INT               NOT NULL REFERENCES project  (id),
+  responsibleEmployeeId INT         NOT NULL REFERENCES employee (id)
+
 );
 
 CREATE TABLE recordSpentTime (
@@ -32,7 +33,7 @@ CREATE TABLE recordSpentTime (
   calendarInsertRecord varchar(45)  NOT NULL,
   numberOfHour varchar(45)          NOT NULL,
   employeeNameId INT                NOT NULL REFERENCES employee (id),
-  recordSpentTimeId INT             NOT NULL REFERENCES task (id)
+  nameTaskId INT                    NOT NULL REFERENCES task     (id)
 );
 
 # SELECT * FROM project LEFT JOIN employee USING(id);

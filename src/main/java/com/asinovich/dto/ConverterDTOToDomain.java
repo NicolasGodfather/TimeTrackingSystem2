@@ -12,38 +12,51 @@ import java.util.List;
 /**
  * Реализация преобразования из одного слоя в другой
  *
- * TODO: тут нужно очень внимательно смотреть и думать, возможно можно сделать по-другому
+ * TODO: all need to make it easier =)
  * @author Nicolas Asinovich.
  */
 @Component
 public class ConverterDTOToDomain {
 
     public Employee convertEmployeeDTOToTheEmployee(EmployeeDTO employeeDTO) {
+        return getEmployee(employeeDTO);
+    }
+    private Employee getEmployee(EmployeeDTO employeeDTO) {
         Employee employee = new Employee();
+        List<Project> projects = new ArrayList<>();
+        List<Task> tasks = new ArrayList<>();
+
+        getProjectList(employeeDTO, projects);
+        getTaskList(employeeDTO, tasks);
         if (employeeDTO.getId() == null) {
-            setEmployee(employeeDTO, employee);
+            setEmployee(employeeDTO, employee, projects, tasks);
         } else {
             employee.setId(Long.parseLong(employeeDTO.getId()));
-            setEmployee(employeeDTO, employee);
+            setEmployee(employeeDTO, employee, projects, tasks);
         }
         return employee;
     }
-    private void setEmployee (EmployeeDTO employeeDTO, Employee employee) {
-        employee.setName(employeeDTO.getName());
-        employee.setSurname(employeeDTO.getSurname());
-        employee.setPosition(employeeDTO.getPosition());
-    }
-
-    /**
-     * TODO а именно этот метод, т.к. при преобразовании Project должны преобразовываться Task и RecordSpentTime
-     */
-    public Project convertProjectDTOToTheProject (ProjectDTO projectDTO) {
+    private List<Project> getProjectList (EmployeeDTO employeeDTO, List<Project> projects) {
         Project project = new Project();
-        Task task = new Task();
-        List<Task> tasks = new ArrayList<>();
-        List<TaskDTO> taskDTOs = projectDTO.getTaskDTOs();
+        List<ProjectDTO> projectDTOs = employeeDTO.getProjectDTOs();
+        if (employeeDTO.getProjectDTOs() != null) {
+            for (ProjectDTO projectDTO : projectDTOs) {
+                if (projectDTO.getId() == null) {
+                    setProject(projectDTO, project);
+                } else {
+                    project.setId(Long.parseLong(projectDTO.getId()));
+                    setProject(projectDTO, project);
+                }
+                projects.add(convertProjectDTOToTheProject(projectDTO));
+            }
+        }
+        return projects;
+    }
+    private List<Task> getTaskList (EmployeeDTO employeeDTO, List<Task> tasks) {
         List<RecordSpentTime> recordSpentTimes = new ArrayList<>();
-        if (projectDTO.getTaskDTOs() != null) {
+        Task task = new Task();
+        List<TaskDTO> taskDTOs = employeeDTO.getTaskDTOs();
+        if (employeeDTO.getTaskDTOs() != null) {
             for (TaskDTO taskDTO : taskDTOs) {
                 if (taskDTO.getId() == null) {
                     setTask(taskDTO, task, recordSpentTimes);
@@ -51,21 +64,32 @@ public class ConverterDTOToDomain {
                     task.setId(Long.parseLong(taskDTO.getId()));
                     setTask(taskDTO, task, recordSpentTimes);
                 }
-                tasks.add(convertTaskDTOToTheTask(taskDTO));
             }
         }
+        return tasks;
+    }
+    private void setEmployee (EmployeeDTO employeeDTO, Employee employee,
+                              List<Project> projects, List<Task> tasks) {
+        employee.setName(employeeDTO.getName());
+        employee.setSurname(employeeDTO.getSurname());
+        employee.setPosition(employeeDTO.getPosition());
+        employee.setProjects(projects);
+        employee.setTasks(tasks);
+    }
+
+    public Project convertProjectDTOToTheProject (ProjectDTO projectDTO) {
+        Project project = new Project();
         if (projectDTO.getId() == null) {
-            setProject(projectDTO, project, tasks);
+            setProject(projectDTO, project);
         } else {
-            setProject(projectDTO, project, tasks);
+            setProject(projectDTO, project);
             project.setId(Long.parseLong(projectDTO.getId()));
         }
         return project;
     }
-    private void setProject (ProjectDTO projectDTO, Project project, List<Task> tasks) {
+    private void setProject (ProjectDTO projectDTO, Project project) {
         project.setProjectName(projectDTO.getProjectName());
         project.setResponsibleEmployee(convertEmployeeDTOToTheEmployee(projectDTO.getResponsibleEmployeeDTO()));
-        project.setListTask(tasks);
     }
 
     public Task convertTaskDTOToTheTask (TaskDTO taskDTO) {
