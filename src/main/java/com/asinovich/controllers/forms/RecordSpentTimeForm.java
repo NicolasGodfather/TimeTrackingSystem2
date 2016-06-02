@@ -18,7 +18,7 @@ public class RecordSpentTimeForm {
 
     public RecordSpentTimeForm (RecordSpentTimeDTO recordSpentTimeDTO) {
         this.id = recordSpentTimeDTO.getId();
-        this.employeeName = recordSpentTimeDTO.getEmployeeName();
+        this.employeeName = recordSpentTimeDTO.getEmployeeNameDTO().getId();
         this.calendarInsertRecord = String.valueOf(recordSpentTimeDTO.getCalendarInsertRecord());
         this.numberOfHour = String.valueOf(recordSpentTimeDTO.getNumberOfHour());
     }

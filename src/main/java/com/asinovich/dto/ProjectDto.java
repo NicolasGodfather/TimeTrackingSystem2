@@ -11,11 +11,8 @@ import java.util.List;
 public class ProjectDTO {
 
     private String id;
-
     private String projectName;
-
     private EmployeeDTO responsibleEmployeeDTO;
-
     private List<TaskDTO> taskDTOs;
 
     public ProjectDTO () {

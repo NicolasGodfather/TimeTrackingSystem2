@@ -12,17 +12,20 @@ public class RecordSpentTimeDTO {
 
     private String id;
 
-    private String employeeName;
+    private EmployeeDTO employeeNameDTO;
 
     private Calendar calendarInsertRecord;
 
     private String numberOfHour;
 
+    private TaskDTO nameTaskDTO;
+
     public RecordSpentTimeDTO (RecordSpentTime recordSpentTime) {
         this.id = Long.toString(recordSpentTime.getId());
-        this.employeeName = recordSpentTime.getEmployeeName();
+        this.employeeNameDTO = new EmployeeDTO(recordSpentTime.getEmployeeName());
         this.calendarInsertRecord = recordSpentTime.getCalendarInsertRecord();
         this.numberOfHour = Integer.toString(recordSpentTime.getNumberOfHour());
+        this.nameTaskDTO = new TaskDTO(recordSpentTime.getNameTask());
     }
 
     public RecordSpentTimeDTO () {
@@ -36,12 +39,12 @@ public class RecordSpentTimeDTO {
         this.id = id;
     }
 
-    public String getEmployeeName () {
-        return employeeName;
+    public EmployeeDTO getEmployeeNameDTO () {
+        return employeeNameDTO;
     }
 
-    public void setEmployeeName (String employeeName) {
-        this.employeeName = employeeName;
+    public void setEmployeeNameDTO (EmployeeDTO employeeNameDTO) {
+        this.employeeNameDTO = employeeNameDTO;
     }
 
     public Calendar getCalendarInsertRecord () {
@@ -59,4 +62,13 @@ public class RecordSpentTimeDTO {
     public void setNumberOfHour (String numberOfHour) {
         this.numberOfHour = numberOfHour;
     }
+
+    public TaskDTO getNameTaskDTO () {
+        return nameTaskDTO;
+    }
+
+    public void setNameTaskDTO (TaskDTO nameTaskDTO) {
+        this.nameTaskDTO = nameTaskDTO;
+    }
+
 }

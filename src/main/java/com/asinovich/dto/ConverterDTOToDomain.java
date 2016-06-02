@@ -134,7 +134,7 @@ public class ConverterDTOToDomain {
         return recordSpentTime;
     }
     private void setRecordSpentTime (RecordSpentTimeDTO recordSpentTimeDTO, RecordSpentTime recordSpentTime) {
-        recordSpentTime.setEmployeeName(recordSpentTimeDTO.getEmployeeName());
+        recordSpentTime.setEmployeeName(convertEmployeeDTOToTheEmployee(recordSpentTimeDTO.getEmployeeNameDTO()));
         recordSpentTime.setCalendarInsertRecord(recordSpentTimeDTO.getCalendarInsertRecord());
         recordSpentTime.setNumberOfHour(new Integer(recordSpentTimeDTO.getNumberOfHour()));
     }

@@ -25,7 +25,7 @@
         <c:forEach var="recordSpentTime" items="${recordSpentTime}">
             <thbody>
                 <tr>
-                    <td>${recordSpentTime.employeeName}</td>
+                    <td>${recordSpentTime.employeeNameDTO.name}</td>
                     <td>${recordSpentTime.calendarInsertRecord}</td>
                     <td>${recordSpentTime.numberOfHour}</td>
                     <td>

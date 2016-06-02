@@ -25,9 +25,9 @@ public class RecordSpentTime {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "employeeNameId")
-    private String employeeName;
+    private Employee employeeName;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "nameTaskId")
     private Task nameTask;
 
@@ -39,11 +39,11 @@ public class RecordSpentTime {
         this.id = id;
     }
 
-    public String getEmployeeName () {
+    public Employee getEmployeeName () {
         return employeeName;
     }
 
-    public void setEmployeeName (String employeeName) {
+    public void setEmployeeName (Employee employeeName) {
         this.employeeName = employeeName;
     }
 

@@ -29,8 +29,6 @@
                     <td>${employee.name}</td>
                     <td>${employee.surname}</td>
                     <td>${employee.position}</td>
-                    <td>${employee.}</td>
-                    <td>${employee.position}</td>
                     <td>
                         <p>
                             <a class="btn btn-info btn-xs" href="/project/appoint/employee/{id}${employee.id}" role="button">Appoint</a>
