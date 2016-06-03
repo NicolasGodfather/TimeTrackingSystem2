@@ -18,9 +18,13 @@ import java.util.List;
 @Component
 public class ConverterDTOToDomain {
 
+    /**
+     * Convert Employee
+     */
     public Employee convertEmployeeDTOToTheEmployee(EmployeeDTO employeeDTO) {
         return getEmployee(employeeDTO);
     }
+
     private Employee getEmployee(EmployeeDTO employeeDTO) {
         Employee employee = new Employee();
         List<Project> projects = new ArrayList<>();
@@ -36,6 +40,7 @@ public class ConverterDTOToDomain {
         }
         return employee;
     }
+
     private List<Project> getProjectList (EmployeeDTO employeeDTO, List<Project> projects) {
         Project project = new Project();
         List<ProjectDTO> projectDTOs = employeeDTO.getProjectDTOs();
@@ -52,6 +57,7 @@ public class ConverterDTOToDomain {
         }
         return projects;
     }
+
     private List<Task> getTaskList (EmployeeDTO employeeDTO, List<Task> tasks) {
         List<RecordSpentTime> recordSpentTimes = new ArrayList<>();
         Task task = new Task();
@@ -64,10 +70,12 @@ public class ConverterDTOToDomain {
                     task.setId(Long.parseLong(taskDTO.getId()));
                     setTask(taskDTO, task, recordSpentTimes);
                 }
+                tasks.add(convertTaskDTOToTheTask(taskDTO));
             }
         }
         return tasks;
     }
+
     private void setEmployee (EmployeeDTO employeeDTO, Employee employee,
                               List<Project> projects, List<Task> tasks) {
         employee.setName(employeeDTO.getName());
@@ -77,8 +85,14 @@ public class ConverterDTOToDomain {
         employee.setTasks(tasks);
     }
 
+    /**
+     * Convert Project
+     */
     public Project convertProjectDTOToTheProject (ProjectDTO projectDTO) {
+        EmployeeDTO employeeDTO = new EmployeeDTO();
         Project project = new Project();
+        List<Task> tasks = new ArrayList<>();
+        getTaskList(employeeDTO, tasks);
         if (projectDTO.getId() == null) {
             setProject(projectDTO, project);
         } else {
@@ -87,15 +101,31 @@ public class ConverterDTOToDomain {
         }
         return project;
     }
+
     private void setProject (ProjectDTO projectDTO, Project project) {
         project.setProjectName(projectDTO.getProjectName());
         project.setResponsibleEmployee(convertEmployeeDTOToTheEmployee(projectDTO.getResponsibleEmployeeDTO()));
     }
 
+    /**
+     * Convert Task
+     */
     public Task convertTaskDTOToTheTask (TaskDTO taskDTO) {
         Task task = new Task();
-        RecordSpentTime recordSpentTime = new RecordSpentTime();
         List<RecordSpentTime> recordSpentTimes = new ArrayList<>();
+        getRecordSpentTimeList(taskDTO, recordSpentTimes);
+        if (taskDTO.getId() == null) {
+            setTask(taskDTO, task, recordSpentTimes);
+        } else {
+            setTask(taskDTO, task, recordSpentTimes);
+            task.setId(Long.parseLong(taskDTO.getId()));
+        }
+        return task;
+    }
+
+    private List<RecordSpentTime> getRecordSpentTimeList
+            (TaskDTO taskDTO,List<RecordSpentTime> recordSpentTimes) {
+        RecordSpentTime recordSpentTime = new RecordSpentTime();
         List<RecordSpentTimeDTO> recordSpentTimeDTOs = taskDTO.getRecordSpentTimeDTOs();
         if (taskDTO.getId() != null) {
             for (RecordSpentTimeDTO recordSpentTimeDTO : recordSpentTimeDTOs) {
@@ -108,13 +138,7 @@ public class ConverterDTOToDomain {
                 recordSpentTimes.add(convertRecordSpentTimeDTOToTheRecordSpentTime(recordSpentTimeDTO));
             }
         }
-        if (taskDTO.getId() == null) {
-            setTask(taskDTO, task, recordSpentTimes);
-        } else {
-            setTask(taskDTO, task, recordSpentTimes);
-            task.setId(Long.parseLong(taskDTO.getId()));
-        }
-        return task;
+        return recordSpentTimes;
     }
 
     private void setTask (TaskDTO taskDTO, Task task, List<RecordSpentTime> recordSpentTimes) {
@@ -123,6 +147,9 @@ public class ConverterDTOToDomain {
         task.setListRecordSpentTime(recordSpentTimes);
     }
 
+    /**
+     * Convert RecordSpentTime
+     */
     public RecordSpentTime convertRecordSpentTimeDTOToTheRecordSpentTime (RecordSpentTimeDTO recordSpentTimeDTO) {
         RecordSpentTime recordSpentTime = new RecordSpentTime();
         if (recordSpentTimeDTO.getId() == null) {

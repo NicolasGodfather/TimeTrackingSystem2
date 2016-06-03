@@ -28,11 +28,14 @@ public class Employee {
 
     private String position;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "responsibleEmployee")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "responsibleEmployee")
     private List<Project> projects;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "responsibleEmployee")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "responsibleEmployee")
     private List<Task> tasks;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "employeeName")
+    private List<RecordSpentTime> recordSpentTimes;
 
     public Employee () {
     }
@@ -83,5 +86,13 @@ public class Employee {
 
     public void setTasks (List<Task> tasks) {
         this.tasks = tasks;
+    }
+
+    public List<RecordSpentTime> getRecordSpentTimes () {
+        return recordSpentTimes;
+    }
+
+    public void setRecordSpentTimes (List<RecordSpentTime> recordSpentTimes) {
+        this.recordSpentTimes = recordSpentTimes;
     }
 }

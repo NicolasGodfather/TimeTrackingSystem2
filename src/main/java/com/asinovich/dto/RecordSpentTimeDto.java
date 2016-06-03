@@ -11,13 +11,9 @@ import java.util.Calendar;
 public class RecordSpentTimeDTO {
 
     private String id;
-
     private EmployeeDTO employeeNameDTO;
-
     private Calendar calendarInsertRecord;
-
     private String numberOfHour;
-
     private TaskDTO nameTaskDTO;
 
     public RecordSpentTimeDTO (RecordSpentTime recordSpentTime) {

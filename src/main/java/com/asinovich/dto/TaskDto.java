@@ -11,11 +11,8 @@ import java.util.List;
 public class TaskDTO {
 
     private String id;
-
     private String taskName;
-
     private EmployeeDTO responsibleEmployee;
-
     private List<RecordSpentTimeDTO> recordSpentTimeDTOs;
 
     public TaskDTO (Task task) {

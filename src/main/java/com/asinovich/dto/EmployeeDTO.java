@@ -16,6 +16,7 @@ public class EmployeeDTO {
     private String position;
     private List<ProjectDTO> projectDTOs;
     private List<TaskDTO> taskDTOs;
+    private List<RecordSpentTimeDTO> recordSpentTimeDTOs;
 
     public EmployeeDTO () {
     }
@@ -73,5 +74,13 @@ public class EmployeeDTO {
 
     public void setTaskDTOs (List<TaskDTO> taskDTOs) {
         this.taskDTOs = taskDTOs;
+    }
+
+    public List<RecordSpentTimeDTO> getRecordSpentTimeDTOs () {
+        return recordSpentTimeDTOs;
+    }
+
+    public void setRecordSpentTimeDTOs (List<RecordSpentTimeDTO> recordSpentTimeDTOs) {
+        this.recordSpentTimeDTOs = recordSpentTimeDTOs;
     }
 }

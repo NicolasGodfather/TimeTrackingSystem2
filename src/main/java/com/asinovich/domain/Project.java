@@ -25,7 +25,7 @@ public class Project {
     @JoinColumn(name = "responsibleEmployeeId")
     private Employee responsibleEmployee;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "taskOfProject")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "taskOfProject")
     private List<Task> listTask;
 
     public long getId () {

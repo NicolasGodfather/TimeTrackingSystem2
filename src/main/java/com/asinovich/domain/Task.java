@@ -29,7 +29,7 @@ public class Task {
     @JoinColumn(name = "taskOfProjectId")
     private Project taskOfProject;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "nameTask")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "nameTask")
     private List<RecordSpentTime> listRecordSpentTime;
 
     public long getId () {
