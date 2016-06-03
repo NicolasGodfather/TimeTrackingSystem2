@@ -20,3 +20,5 @@ insert into time.task (taskName, taskOfProjectId, responsibleEmployeeId) values 
 insert into time.task (taskName, taskOfProjectId, responsibleEmployeeId) values ( 'develop new system', '4', '8' );
 insert into time.task (taskName, taskOfProjectId, responsibleEmployeeId) values ( 'implement all', '3', '3' );
 
+insert into time.recordspenttime (calendarInsertRecord, numberOfHour, employeeNameId, nameTaskId) values ('20/05/16', '24', '3', '1');
+

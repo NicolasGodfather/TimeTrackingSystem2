@@ -1,12 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Appoint Employee To Project</title>
-    <jsp:include page="setupPage.jsp" flush="true"/>
-</head>
-<body>
+
 <div class="container">
     <jsp:include page="topNavigationButtons.jsp" flush="true"/>
     <h1><p class="text-center">Appoint Employee To Project</p></h1>
@@ -44,7 +36,4 @@
     </form:form>
     </form>
 </div>
-</body>
-</html>
-
 
