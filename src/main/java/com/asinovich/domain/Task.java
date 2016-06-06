@@ -21,11 +21,11 @@ public class Task {
 
     private String taskName;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "responsibleEmployeeId")
     private Employee responsibleEmployee;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "taskOfProjectId")
     private Project taskOfProject;
 

@@ -25,7 +25,6 @@ CREATE TABLE task (
   taskName varchar(45)              NOT NULL,
   taskOfProjectId INT               NOT NULL REFERENCES project  (id),
   responsibleEmployeeId INT         NOT NULL REFERENCES employee (id)
-
 );
 
 CREATE TABLE recordSpentTime (

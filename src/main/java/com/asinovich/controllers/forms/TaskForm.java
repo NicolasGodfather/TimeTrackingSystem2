@@ -11,6 +11,7 @@ public class TaskForm {
     private String id;
     private String taskName;
     private String responsibleEmployee;
+    private String taskOfProject;
 
     public TaskForm () {
     }
@@ -19,6 +20,7 @@ public class TaskForm {
         this.id = taskDTO.getId();
         this.taskName = taskDTO.getTaskName();
         this.responsibleEmployee = taskDTO.getResponsibleEmployee().getId();
+        this.taskOfProject = taskDTO.getTaskOfProject().getId();
     }
 
     public String getId () {
@@ -43,6 +45,14 @@ public class TaskForm {
 
     public void setResponsibleEmployee (String responsibleEmployee) {
         this.responsibleEmployee = responsibleEmployee;
+    }
+
+    public String getTaskOfProject () {
+        return taskOfProject;
+    }
+
+    public void setTaskOfProject (String taskOfProject) {
+        this.taskOfProject = taskOfProject;
     }
 
     @Override

@@ -23,11 +23,11 @@ public class RecordSpentTime {
 
     private int numberOfHour;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "employeeNameId")
     private Employee employeeName;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "nameTaskId")
     private Task nameTask;
 
