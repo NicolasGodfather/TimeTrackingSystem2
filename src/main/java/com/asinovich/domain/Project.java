@@ -21,7 +21,7 @@ public class Project {
 
     private String projectName;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "responsibleEmployeeId")
     private Employee responsibleEmployee;
 

@@ -28,13 +28,13 @@ public class Employee {
 
     private String position;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "responsibleEmployee")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "responsibleEmployee")
     private List<Project> projects;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "responsibleEmployee")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "responsibleEmployee")
     private List<Task> tasks;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "employeeName")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "employeeName")
     private List<RecordSpentTime> recordSpentTimes;
 
     public Employee () {

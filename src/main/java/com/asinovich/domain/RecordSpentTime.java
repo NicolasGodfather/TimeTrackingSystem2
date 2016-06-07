@@ -23,7 +23,7 @@ public class RecordSpentTime {
 
     private int numberOfHour;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "employeeNameId")
     private Employee employeeName;
 
