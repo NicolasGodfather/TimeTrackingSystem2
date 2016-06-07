@@ -52,13 +52,12 @@ public class RecordSpentTimeController {
 
     @RequestMapping(value = "/save/recordSpentTime/{id}", method = RequestMethod.GET)
     public String showPageEditRecordSpentTime(@PathVariable (value = "id") Long id, ModelMap modelMap) {
-        try {
-            RecordSpentTimeDTO recordSpentTimeDTO = recordSpentTimeService.getById(id);
-            modelMap.addAttribute("recordSpentTimeForm", new RecordSpentTimeForm(recordSpentTimeDTO));
-            return SAVE_RECORDSPENTTIME;
-        } catch (NullPointerException e) {
+        RecordSpentTimeDTO recordSpentTimeDTO = recordSpentTimeService.getById(id);
+        if (recordSpentTimeDTO == null) {
             return ERROR_PAGE;
         }
+        modelMap.addAttribute("recordSpentTimeForm", new RecordSpentTimeForm(recordSpentTimeDTO));
+        return SAVE_RECORDSPENTTIME;
     }
 
     @RequestMapping(value = "/save/recordSpentTime", method = RequestMethod.POST)

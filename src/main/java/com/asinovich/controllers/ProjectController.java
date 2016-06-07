@@ -49,47 +49,15 @@ public class ProjectController {
         return All_PROJECT;
     }
 
-    @RequestMapping(value = "/employee/appoint/project/{id}", method = RequestMethod.GET)
-    public String showPageAddProjectEmployee(@PathVariable(value = "id") Long id, ModelMap modelMap) {
-        EmployeeDTO employeeDTO = employeeService.getById(id);
-        if (employeeDTO == null) {
-            return ERROR_PAGE;
-        }
-        modelMap.addAttribute("projectForm", new ProjectForm());
-        modelMap.addAttribute("responsibleEmployeeId", employeeDTO.getId());
-        modelMap.addAttribute("employees", employeeService.getAll());
-        return APPOINT;
-    }
-
-    @RequestMapping(value = "/employee/appoint/project/{id}", method = RequestMethod.POST)
-        public String AddProjectEmployee(@PathVariable(value = "id") Long id, ModelMap modelMap,
-                                         @Validated ProjectForm projectForm, BindingResult bindingResult) {
-            EmployeeDTO employeeDTO = employeeService.getById(id);
-            if (bindingResult.hasErrors()) {
-                if (employeeDTO == null) {
-                    return ERROR_PAGE;
-                }
-                modelMap.addAttribute("responsibleEmployeeId", employeeDTO.getId());
-                modelMap.addAttribute("employees", employeeService.getAll());
-                return APPOINT;
-            }
-        ProjectDTO projectDTO = new ProjectDTO();
-        projectDTO.setProjectName(projectForm.getProjectName());
-        projectDTO.setResponsibleEmployeeDTO(employeeDTO);
-        projectService.insert(projectDTO);
-        return All_PROJECT;
-        }
-
     @RequestMapping(value = "/save/project/{id}", method = RequestMethod.GET)
     public String showPageEditProject(@PathVariable (value = "id") Long id, ModelMap modelMap) {
-        try {
-            ProjectDTO projectDTO = projectService.getById(id);
-            modelMap.addAttribute("projectForm", new ProjectForm(projectDTO));
-            modelMap.addAttribute("responsibleEmployeeId", projectDTO.getResponsibleEmployeeDTO().getId());
-            return SAVE_PROJECT;
-        } catch (NullPointerException e) {
+        ProjectDTO projectDTO = projectService.getById(id);
+        if (projectDTO == null) {
             return ERROR_PAGE;
         }
+        modelMap.addAttribute("projectForm", new ProjectForm(projectDTO));
+        modelMap.addAttribute("responsibleEmployeeId", projectDTO.getResponsibleEmployeeDTO().getId());
+        return SAVE_PROJECT;
     }
 
     @RequestMapping(value = "/save/project", method = RequestMethod.POST)
@@ -118,31 +86,34 @@ public class ProjectController {
     public RedirectView deleteProject(@PathVariable(value = "id") Long id) {
         projectService.deleteById(id);
         return new RedirectView("/all/project");
-
-
     }
 
-    @RequestMapping(value = "/project/appoint/employee/{id}", method = RequestMethod.POST)
-    public String addProjectEmployee(@PathVariable(value = "id") Long id,
-                                     @Validated ProjectForm projectForm, BindingResult bindingResult, ModelMap model) {
+    @RequestMapping(value = "/employee/appoint/project/{id}", method = RequestMethod.GET)
+    public String showPageAddProjectEmployee(@PathVariable(value = "id") Long id, ModelMap modelMap) {
+        EmployeeDTO employeeDTO = employeeService.getById(id);
+        if (employeeDTO == null) {
+            return ERROR_PAGE;
+        }
+        modelMap.addAttribute("projectForm", new ProjectForm());
+        modelMap.addAttribute("responsibleEmployeeId", employeeDTO.getId());
+        return APPOINT;
+    }
+
+    @RequestMapping(value = "/employee/appoint/project/{id}", method = RequestMethod.POST)
+    public String AddProjectEmployee(@PathVariable(value = "id") Long id, ModelMap modelMap,
+                                     @Validated ProjectForm projectForm, BindingResult bindingResult) {
         EmployeeDTO employeeDTO = employeeService.getById(id);
         if (bindingResult.hasErrors()) {
             if (employeeDTO == null) {
                 return ERROR_PAGE;
             }
-            model.addAttribute("employees", employeeDTO.getId());
+            modelMap.addAttribute("responsibleEmployeeId", employeeDTO.getId());
             return APPOINT;
         }
-//        CurrencyDTO currencyDTO = currencyService.getById(Long.parseLong(purseForm.getCurrencyId()));
-//        PurseDTO purseDTO = new PurseDTO();
-//        purseDTO.setName(purseForm.getName());
-//        purseDTO.setCurrencyDTO(currencyDTO);
-//        purseDTO.setOwnerDTO(userDTO);
-//        purseDTO.setAmount(purseForm.getAmount());
-//        purseService.insert(purseDTO);
         ProjectDTO projectDTO = new ProjectDTO();
         projectDTO.setProjectName(projectForm.getProjectName());
         projectDTO.setResponsibleEmployeeDTO(employeeDTO);
+//        projectDTO.setTaskDTOs();
         projectService.insert(projectDTO);
         return "redirect:/all/project";
     }

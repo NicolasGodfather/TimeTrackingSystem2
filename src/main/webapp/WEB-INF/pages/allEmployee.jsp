@@ -31,8 +31,8 @@
                     <td>${employee.position}</td>
                     <td>
                         <p>
-                            <a class="btn btn-info btn-xs" href="/project/add/employee/{id}${employee.id}" role="button">Appoint Project</a>
-                            <a class="btn btn-info btn-xs" href="/task/add/employee/{id}${employee.id}" role="button">Appoint Task</a>
+                            <a class="btn btn-info btn-xs" href="/project/appoint/employee/${employee.id}" role="button">Appoint Project</a>
+                            <a class="btn btn-info btn-xs" href="/task/appoint/employee/${employee.id}" role="button">Appoint Task</a>
                             <a class="btn btn-xs btn-default" href="/save/employee/${employee.id}" role="button">Edit</a>
                             <a class="btn btn-xs btn-danger" href="/delete/employee/${employee.id}" role="button">Delete</a>
                         </p>

@@ -21,7 +21,7 @@ public class Task {
 
     private String taskName;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "responsibleEmployeeId")
     private Employee responsibleEmployee;
 

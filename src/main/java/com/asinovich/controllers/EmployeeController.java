@@ -53,13 +53,12 @@ public class EmployeeController {
 
     @RequestMapping(value = "/save/employee/{id}", method = RequestMethod.GET)
     public String showPageEditEmployee(@PathVariable(value = "id") Long id, ModelMap modelMap) {
-        try {
-            EmployeeDTO employeeDTO = employeeService.getById(id);
-            modelMap.addAttribute("employeeForm", new EmployeeForm(employeeDTO));
-            return SAVE_EMPLOYEE;
-        } catch (NullPointerException e) {
+        EmployeeDTO employeeDTO = employeeService.getById(id);
+        if (employeeDTO == null) {
             return ERROR_PAGE;
         }
+        modelMap.addAttribute("employeeForm", new EmployeeForm(employeeDTO));
+        return SAVE_EMPLOYEE;
     }
 
     @RequestMapping(value = "/save/employee", method = RequestMethod.POST)
@@ -91,7 +90,6 @@ public class EmployeeController {
         employeeService.deleteById(id);
         return new RedirectView("/");
     }
-
 }
 
 

@@ -53,13 +53,12 @@ public class TaskController {
 
     @RequestMapping(value = "/save/task/{id}", method = RequestMethod.GET)
     public String showPageEditTask(@PathVariable (value = "id") Long id, ModelMap modelMap) {
-        try {
-            TaskDTO taskDTO = taskService.getById(id);
-            modelMap.addAttribute("taskForm", new TaskForm(taskDTO));
-            return SAVE_TASK;
-        } catch (NullPointerException e) {
+        TaskDTO taskDTO = taskService.getById(id);
+        if (taskDTO == null) {
             return ERROR_PAGE;
         }
+        modelMap.addAttribute("taskForm", new TaskForm(taskDTO));
+        return SAVE_TASK;
     }
 
     @RequestMapping(value = "/save/task", method = RequestMethod.POST)

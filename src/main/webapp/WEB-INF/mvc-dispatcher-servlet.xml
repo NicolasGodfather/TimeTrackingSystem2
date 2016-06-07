@@ -21,9 +21,10 @@
     <context:annotation-config/>
     <tx:annotation-driven/>
 
+    <!--Подстановка переменных-заполнителей -->
     <context:property-placeholder
             ignore-unresolvable="true"
-            location="classpath:application.properties" />
+            location="classpath:application.properties" /> <!-- здесь будут искаться property файлы -->
 
     <context:component-scan base-package="com.asinovich"/>
 
