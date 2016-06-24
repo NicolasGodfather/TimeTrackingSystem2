@@ -1,7 +1,7 @@
 package com.asinovich.domain;
 
 import javax.persistence.*;
-import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Реализация Записи Затраченного Времени как Сущности
@@ -14,16 +14,16 @@ import java.util.Calendar;
  */
 
 @Entity
-public class RecordSpentTime {
+public class SpentTime {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
-    private Calendar calendarInsertRecord;
+    private Date insertDate;
 
     private int numberOfHour;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "employeeNameId")
     private Employee employeeName;
 
@@ -47,12 +47,12 @@ public class RecordSpentTime {
         this.employeeName = employeeName;
     }
 
-    public Calendar getCalendarInsertRecord () {
-        return calendarInsertRecord;
+    public Date getInsertDate () {
+        return insertDate;
     }
 
-    public void setCalendarInsertRecord (Calendar calendarInsertRecord) {
-        this.calendarInsertRecord = calendarInsertRecord;
+    public void setInsertDate (Date insertDate) {
+        this.insertDate = insertDate;
     }
 
     public int getNumberOfHour () {

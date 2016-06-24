@@ -11,7 +11,7 @@
 <div class="container">
     <jsp:include page="topNavigationButtons.jsp" flush="true"/>
     <h1><p class="text-center">All Records Spent Time</p></h1>
-    <p align="center"><a class="btn btn-sm btn-success" href="/add/recordSpentTime" role="button">All Records Spent Time</a></p>
+    <p align="center"><a class="btn btn-sm btn-success" href="/add/spentTime" role="button">All Records Spent Time</a></p>
     <table class="table">
         <thead>
         <tr>
@@ -22,16 +22,16 @@
             <th>Actions</th>
         </tr>
         </thead>
-        <c:forEach var="recordSpentTime" items="${recordSpentTime}">
+        <c:forEach var="spentTime" items="${spentTime}">
             <thbody>
                 <tr>
-                    <td>${recordSpentTime.employeeNameDTO.name}</td>
-                    <td>${recordSpentTime.calendarInsertRecord}</td>
-                    <td>${recordSpentTime.numberOfHour}</td>
+                    <td>${spentTime.employeeNameDTO.name}</td>
+                    <td>${spentTime.calendarInsertRecord}</td>
+                    <td>${spentTime.numberOfHour}</td>
                     <td>
                         <p>
-                            <a class="btn btn-xs btn-default" href="/save/recordSpentTime/${recordSpentTime.id}" role="button">Edit</a>
-                            <a class="btn btn-xs btn-danger" href="/delete/recordSpentTime/${recordSpentTime.id}" role="button">Delete</a>
+                            <a class="btn btn-xs btn-default" href="/save/spentTime/${spentTime.id}" role="button">Edit</a>
+                            <a class="btn btn-xs btn-danger" href="/delete/spentTime/${spentTime.id}" role="button">Delete</a>
                         </p>
                     </td>
                 </tr>

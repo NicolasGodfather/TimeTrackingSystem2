@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS time;
 USE time;
 
-DROP TABLE IF EXISTS recordSpentTime;
+DROP TABLE IF EXISTS spentTime;
 DROP TABLE IF EXISTS task;
 DROP TABLE IF EXISTS project;
 DROP TABLE IF EXISTS employee;
@@ -27,7 +27,7 @@ CREATE TABLE task (
   responsibleEmployeeId INT         NOT NULL REFERENCES employee (id)
 );
 
-CREATE TABLE recordSpentTime (
+CREATE TABLE spentTime (
   id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
   calendarInsertRecord varchar(45)  NOT NULL,
   numberOfHour varchar(45)          NOT NULL,

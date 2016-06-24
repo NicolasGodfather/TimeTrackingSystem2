@@ -30,7 +30,7 @@
                     <td>${task.taskName}</td>
                     <td>${task.responsibleEmployee.name} ${task.responsibleEmployee.surname}</td>
                     <td>${task.} ${task.responsibleEmployee.surname}</td>
-                    <td><a href="all/recordSpentTime/${task.recordSpentTimeDTOs}" role="button">View All Records</a></td>
+                    <td><a href="all/spentTime/${task.spentTimeDTOs}" role="button">View All Records</a></td>
                     <td>
                         <p>
                             <a class="btn btn-info btn-xs" href="/appoint/task/${task.id}" role="button">Appoint</a>

@@ -21,7 +21,7 @@ public class Task {
 
     private String taskName;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "responsibleEmployeeId")
     private Employee responsibleEmployee;
 
@@ -30,7 +30,7 @@ public class Task {
     private Project taskOfProject;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "nameTask")
-    private List<RecordSpentTime> listRecordSpentTime;
+    private List<SpentTime> listSpentTime;
 
     public long getId () {
         return id;
@@ -64,11 +64,11 @@ public class Task {
         this.taskOfProject = taskOfProject;
     }
 
-    public List<RecordSpentTime> getListRecordSpentTime () {
-        return listRecordSpentTime;
+    public List<SpentTime> getListSpentTime () {
+        return listSpentTime;
     }
 
-    public void setListRecordSpentTime (List<RecordSpentTime> listRecordSpentTime) {
-        this.listRecordSpentTime = listRecordSpentTime;
+    public void setListSpentTime (List<SpentTime> listSpentTime) {
+        this.listSpentTime = listSpentTime;
     }
 }

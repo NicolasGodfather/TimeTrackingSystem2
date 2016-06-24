@@ -5,5 +5,5 @@ package com.asinovich.dto.mappers;
  *
  * @author Nicolas Asinovich.
  */
-public class RecordSpentTime {
+public class SpentTimeMapper {
 }

@@ -1,26 +1,26 @@
 package com.asinovich.controllers.forms;
 
-import com.asinovich.dto.RecordSpentTimeDTO;
+import com.asinovich.dto.SpentTimeDTO;
 
 /**
  *
  * @author Nicolas Asinovich.
  */
-public class RecordSpentTimeForm {
+public class SpentTimeForm {
 
     private String id;
     private String employeeName;
-    private String calendarInsertRecord;
+    private String insertDate;
     private String numberOfHour;
 
-    public RecordSpentTimeForm () {
+    public SpentTimeForm () {
     }
 
-    public RecordSpentTimeForm (RecordSpentTimeDTO recordSpentTimeDTO) {
-        this.id = recordSpentTimeDTO.getId();
-        this.employeeName = recordSpentTimeDTO.getEmployeeNameDTO().getId();
-        this.calendarInsertRecord = String.valueOf(recordSpentTimeDTO.getCalendarInsertRecord());
-        this.numberOfHour = String.valueOf(recordSpentTimeDTO.getNumberOfHour());
+    public SpentTimeForm (SpentTimeDTO spentTimeDTO) {
+        this.id = spentTimeDTO.getId();
+        this.employeeName = spentTimeDTO.getEmployeeNameDTO().getId();
+        this.insertDate = String.valueOf(spentTimeDTO.getInsertDate());
+        this.numberOfHour = String.valueOf(spentTimeDTO.getNumberOfHour());
     }
 
     public String getId () {
@@ -39,12 +39,12 @@ public class RecordSpentTimeForm {
         this.employeeName = employeeName;
     }
 
-    public String getCalendarInsertRecord () {
-        return calendarInsertRecord;
+    public String getInsertDate () {
+        return insertDate;
     }
 
-    public void setCalendarInsertRecord (String calendarInsertRecord) {
-        this.calendarInsertRecord = calendarInsertRecord;
+    public void setInsertDate (String insertDate) {
+        this.insertDate = insertDate;
     }
 
     public String getNumberOfHour () {
@@ -57,10 +57,10 @@ public class RecordSpentTimeForm {
 
     @Override
     public String toString () {
-        return "RecordSpentTimeForm{" +
+        return "SpentTimeForm{" +
                 "id='" + id + '\'' +
                 ", employeeName='" + employeeName + '\'' +
-                ", calendarInsertRecord='" + calendarInsertRecord + '\'' +
+                ", insertDate='" + insertDate + '\'' +
                 ", numberOfHour='" + numberOfHour + '\'' +
                 '}';
     }

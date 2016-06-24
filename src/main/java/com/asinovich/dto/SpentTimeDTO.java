@@ -1,30 +1,30 @@
 package com.asinovich.dto;
 
-import com.asinovich.domain.RecordSpentTime;
+import com.asinovich.domain.SpentTime;
 
-import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
  * @author Nicolas Asinovich.
  */
-public class RecordSpentTimeDTO {
+public class SpentTimeDTO {
 
     private String id;
     private EmployeeDTO employeeNameDTO;
-    private Calendar calendarInsertRecord;
+    private Date insertDate;
     private String numberOfHour;
     private TaskDTO nameTaskDTO;
 
-    public RecordSpentTimeDTO (RecordSpentTime recordSpentTime) {
-        this.id = Long.toString(recordSpentTime.getId());
-        this.employeeNameDTO = new EmployeeDTO(recordSpentTime.getEmployeeName());
-        this.calendarInsertRecord = recordSpentTime.getCalendarInsertRecord();
-        this.numberOfHour = Integer.toString(recordSpentTime.getNumberOfHour());
-        this.nameTaskDTO = new TaskDTO(recordSpentTime.getNameTask());
+    public SpentTimeDTO (SpentTime spentTime) {
+        this.id = Long.toString(spentTime.getId());
+        this.employeeNameDTO = new EmployeeDTO(spentTime.getEmployeeName());
+        this.insertDate = spentTime.getInsertDate();
+        this.numberOfHour = Integer.toString(spentTime.getNumberOfHour());
+        this.nameTaskDTO = new TaskDTO(spentTime.getNameTask());
     }
 
-    public RecordSpentTimeDTO () {
+    public SpentTimeDTO () {
     }
 
     public String getId () {
@@ -43,12 +43,12 @@ public class RecordSpentTimeDTO {
         this.employeeNameDTO = employeeNameDTO;
     }
 
-    public Calendar getCalendarInsertRecord () {
-        return calendarInsertRecord;
+    public Date getInsertDate () {
+        return insertDate;
     }
 
-    public void setCalendarInsertRecord (Calendar calendarInsertRecord) {
-        this.calendarInsertRecord = calendarInsertRecord;
+    public void setInsertDate (Date insertDate) {
+        this.insertDate = insertDate;
     }
 
     public String getNumberOfHour () {

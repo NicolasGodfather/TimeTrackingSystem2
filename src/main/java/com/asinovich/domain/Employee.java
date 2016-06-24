@@ -1,7 +1,9 @@
 package com.asinovich.domain;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  * Реализация Работника как Сущности
@@ -27,15 +29,6 @@ public class Employee {
     private String surname;
 
     private String position;
-
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "responsibleEmployee")
-    private List<Project> projects;
-
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "responsibleEmployee")
-    private List<Task> tasks;
-
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "employeeName")
-    private List<RecordSpentTime> recordSpentTimes;
 
     public Employee () {
     }
@@ -70,29 +63,5 @@ public class Employee {
 
     public void setPosition (String position) {
         this.position = position;
-    }
-
-    public List<Project> getProjects () {
-        return projects;
-    }
-
-    public void setProjects (List<Project> projects) {
-        this.projects = projects;
-    }
-
-    public List<Task> getTasks () {
-        return tasks;
-    }
-
-    public void setTasks (List<Task> tasks) {
-        this.tasks = tasks;
-    }
-
-    public List<RecordSpentTime> getRecordSpentTimes () {
-        return recordSpentTimes;
-    }
-
-    public void setRecordSpentTimes (List<RecordSpentTime> recordSpentTimes) {
-        this.recordSpentTimes = recordSpentTimes;
     }
 }
