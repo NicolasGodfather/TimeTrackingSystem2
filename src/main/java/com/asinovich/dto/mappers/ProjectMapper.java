@@ -71,11 +71,11 @@ public class ProjectMapper {
         ProjectDTO projectDTO = new ProjectDTO();
         List<TaskDTO> taskDTOs = new ArrayList<>();
         getTaskListDTO(project, taskDTOs);
-        if (String.valueOf(project.getId()).isEmpty()) {
+        if (getValueOf(project.getId()).isEmpty()) {
             setProjectDTO(projectDTO, project);
         } else {
+            projectDTO.setId(getValueOf(project.getId()));
             setProjectDTO(projectDTO, project);
-            projectDTO.setId(String.valueOf(projectDTO.getId()));
         }
         return projectDTO;
     }
@@ -86,10 +86,10 @@ public class ProjectMapper {
         List<Task> tasks = project.getListTask();
         if (project.getListTask() != null) {
             for (Task task : tasks) {
-                if (String.valueOf(task.getId()).isEmpty()) {
+                if (getValueOf(task.getId()).isEmpty()) {
                     taskMapper.setTaskDTO(taskDTO, task, spentTimeDTOs);
                 } else {
-                    task.setId(Long.parseLong(taskDTO.getId()));
+                    taskDTO.setId(getValueOf(task.getId()));
                     taskMapper.setTaskDTO(taskDTO, task, spentTimeDTOs);
                 }
                 taskDTOs.add(taskMapper.convertTaskToTheTaskDTO(task));
@@ -102,5 +102,9 @@ public class ProjectMapper {
         projectDTO.setProjectName(project.getProjectName());
         projectDTO.setResponsibleEmployeeDTO(employeeMapper.
                 convertEmployeeToTheEmployeeDTO(project.getResponsibleEmployee()));
+    }
+
+    private String getValueOf(long x) {
+        return String.valueOf(x);
     }
 }

@@ -29,9 +29,9 @@ CREATE TABLE task (
 
 CREATE TABLE spentTime (
   id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-  calendarInsertRecord varchar(45)  NOT NULL,
+  insertDate varchar(45)  NOT NULL,
   numberOfHour varchar(45)          NOT NULL,
-  employeeNameId INT                NOT NULL REFERENCES employee (id),
+  employeeNameId INT                NOT NULL REFERENCES task (responsibleEmployeeId),
   nameTaskId INT                    NOT NULL REFERENCES task     (id)
 );
 
