@@ -3,6 +3,7 @@ package com.asinovich.service.impl;
 import com.asinovich.dao.TaskDAO;
 import com.asinovich.domain.Task;
 import com.asinovich.dto.TaskDTO;
+import com.asinovich.dto.mappers.TaskMapper;
 import com.asinovich.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,11 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.asinovich.dto.mappers.TaskMapper.convertTaskDTOToTheTask;
-import static com.asinovich.dto.mappers.TaskMapper.convertTaskToTheTaskDTO;
-
 /**
- * Реализация
  *
  * @author Nicolas Asinovich.
  */
@@ -26,10 +23,13 @@ public class TaskServiceImpl implements TaskService {
     @Autowired
     private TaskDAO taskDAO;
 
+    @Autowired
+    private TaskMapper taskMapper;
+
     @Override
     @Transactional (readOnly = true)
     public TaskDTO getById (long id) {
-        return convertTaskToTheTaskDTO(taskDAO.findOne(id));
+        return taskMapper.convertTaskToTheTaskDTO(taskDAO.findOne(id));
     }
 
     @Override
@@ -38,7 +38,7 @@ public class TaskServiceImpl implements TaskService {
         List<Task> tasks = taskDAO.findAll();
         List<TaskDTO> taskDTOs = new ArrayList<>();
         for (Task task : tasks) {
-            taskDTOs.add(convertTaskToTheTaskDTO(task));
+            taskDTOs.add(taskMapper.convertTaskToTheTaskDTO(task));
         }
         return taskDTOs;
     }
@@ -46,13 +46,13 @@ public class TaskServiceImpl implements TaskService {
     @Override
     @Transactional
     public void insert (TaskDTO taskDTO) {
-        taskDAO.saveAndFlush(convertTaskDTOToTheTask(taskDTO));
+        taskDAO.saveAndFlush(taskMapper.convertTaskDTOToTheTask(taskDTO));
     }
 
     @Override
     @Transactional
     public void update (TaskDTO taskDTO) {
-        taskDAO.saveAndFlush(convertTaskDTOToTheTask(taskDTO));
+        taskDAO.saveAndFlush(taskMapper.convertTaskDTOToTheTask(taskDTO));
     }
 
     @Override

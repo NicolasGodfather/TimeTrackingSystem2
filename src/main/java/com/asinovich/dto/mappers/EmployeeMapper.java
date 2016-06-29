@@ -27,7 +27,7 @@ public class EmployeeMapper {
     /**
      * Convert Employee
      */
-    public static Employee convertEmployeeDTOToTheEmployee (EmployeeDTO employeeDTO) {
+    public Employee convertEmployeeDTOToTheEmployee (EmployeeDTO employeeDTO) {
         Employee employee = new Employee();
 
         if (employeeDTO.getId() == null) {
@@ -39,13 +39,13 @@ public class EmployeeMapper {
         return employee;
     }
 
-    private static void setEmployee (EmployeeDTO employeeDTO, Employee employee) {
+    private void setEmployee (EmployeeDTO employeeDTO, Employee employee) {
         employee.setName(employeeDTO.getName());
         employee.setSurname(employeeDTO.getSurname());
         employee.setPosition(employeeDTO.getPosition());
     }
 
-    public static EmployeeDTO convertEmployeeToTheEmployeeDTO (Employee employee) {
+    public EmployeeDTO convertEmployeeToTheEmployeeDTO (Employee employee) {
         EmployeeDTO employeeDTO = new EmployeeDTO();
 
 // TODO:  нужна ли здесь проверка, и правильно ли проверяю id типа long? также и в последующих маперах где есть long id
@@ -58,7 +58,7 @@ public class EmployeeMapper {
         return employeeDTO;
     }
 
-    private static void setEmployeeDTO (EmployeeDTO employeeDTO, Employee employee) {
+    private void setEmployeeDTO (EmployeeDTO employeeDTO, Employee employee) {
         employeeDTO.setName(employee.getName());
         employeeDTO.setSurname(employee.getSurname());
         employeeDTO.setPosition(employee.getPosition());
