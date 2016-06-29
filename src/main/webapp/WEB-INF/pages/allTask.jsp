@@ -29,7 +29,7 @@
                     <td>${task.id}</td>
                     <td>${task.taskName}</td>
                     <td>${task.responsibleEmployee.name} ${task.responsibleEmployee.surname}</td>
-                    <td>${task.} ${task.responsibleEmployee.surname}</td>
+                    <td>${task.taskOfProject}</td>
                     <td><a href="all/spentTime/${task.spentTimeDTOs}" role="button">View All Records</a></td>
                     <td>
                         <p>

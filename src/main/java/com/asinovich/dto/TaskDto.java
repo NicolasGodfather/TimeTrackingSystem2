@@ -1,7 +1,5 @@
 package com.asinovich.dto;
 
-import com.asinovich.domain.Task;
-
 import java.util.List;
 
 /**
@@ -15,13 +13,6 @@ public class TaskDTO {
     private EmployeeDTO responsibleEmployee;
     private ProjectDTO taskOfProject;
     private List<SpentTimeDTO> spentTimeDTOs;
-
-    public TaskDTO (Task task) {
-        this.id = Long.toString(task.getId());
-        this.taskName = task.getTaskName();
-        this.responsibleEmployee = new EmployeeDTO(task.getResponsibleEmployee());
-        this.taskOfProject = new ProjectDTO(task.getTaskOfProject());
-    }
 
     public TaskDTO () {
     }

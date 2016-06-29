@@ -10,8 +10,8 @@
 <body>
 <div class="container">
     <jsp:include page="topNavigationButtons.jsp" flush="true"/>
-    <h1><p class="text-center">All Records Spent Time</p></h1>
-    <p align="center"><a class="btn btn-sm btn-success" href="/add/spentTime" role="button">All Records Spent Time</a></p>
+    <h1><p class="text-center">All Spent Time</p></h1>
+    <p align="center"><a class="btn btn-sm btn-success" href="/add/spentTime" role="button">All Spent Time</a></p>
     <table class="table">
         <thead>
         <tr>
@@ -26,7 +26,7 @@
             <thbody>
                 <tr>
                     <td>${spentTime.employeeNameDTO.name}</td>
-                    <td>${spentTime.calendarInsertRecord}</td>
+                    <td>${spentTime.insertDate}</td>
                     <td>${spentTime.numberOfHour}</td>
                     <td>
                         <p>

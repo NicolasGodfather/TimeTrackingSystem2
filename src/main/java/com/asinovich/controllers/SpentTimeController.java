@@ -24,8 +24,8 @@ import org.springframework.web.servlet.view.RedirectView;
 @Controller
 public class SpentTimeController {
 
-    private static final String All_RECORDSPENTTIME = "allRecordSpentTime";
-    private static final String SAVE_RECORDSPENTTIME = "saveRecordSpentTime";
+    private static final String All_SPENTTIME = "allSpentTime";
+    private static final String SAVE_SPENTTIME = "saveSpentTime";
     private static final String ERROR_PAGE = "errorPage";
 
     @Autowired
@@ -38,53 +38,53 @@ public class SpentTimeController {
         binder.setValidator(spentTimeFormValidator);
     }
 
-    @RequestMapping (value = "all/recordSpentTime", method = RequestMethod.GET)
-    public String showAllRecordSpentTime(ModelMap modelMap) {
-        modelMap.addAttribute("recordSpentTime", spentTimeService.getAll());
-        return All_RECORDSPENTTIME;
+    @RequestMapping (value = "all/spentTime", method = RequestMethod.GET)
+    public String showAllSpentTime(ModelMap modelMap) {
+        modelMap.addAttribute("spentTime", spentTimeService.getAll());
+        return All_SPENTTIME;
     }
 
-    @RequestMapping(value = "/add/recordSpentTime", method = RequestMethod.GET)
-    public String showPageAddRecordSpentTime(ModelMap modelMap) {
-        modelMap.addAttribute("recordSpentTimeForm", new SpentTimeForm());
-        return SAVE_RECORDSPENTTIME;
+    @RequestMapping(value = "/add/spentTime", method = RequestMethod.GET)
+    public String showPageAddSpentTime(ModelMap modelMap) {
+        modelMap.addAttribute("spentTimeForm", new SpentTimeForm());
+        return SAVE_SPENTTIME;
     }
 
-    @RequestMapping(value = "/save/recordSpentTime/{id}", method = RequestMethod.GET)
-    public String showPageEditRecordSpentTime(@PathVariable (value = "id") Long id, ModelMap modelMap) {
+    @RequestMapping(value = "/save/spentTime/{id}", method = RequestMethod.GET)
+    public String showPageEditSpentTime(@PathVariable (value = "id") Long id, ModelMap modelMap) {
         SpentTimeDTO spentTimeDTO = spentTimeService.getById(id);
         if (spentTimeDTO == null) {
             return ERROR_PAGE;
         }
-        modelMap.addAttribute("recordSpentTimeForm", new SpentTimeForm(spentTimeDTO));
-        return SAVE_RECORDSPENTTIME;
+        modelMap.addAttribute("spentTimeForm", new SpentTimeForm(spentTimeDTO));
+        return SAVE_SPENTTIME;
     }
 
-    @RequestMapping(value = "/save/recordSpentTime", method = RequestMethod.POST)
-    public String getSaveRecordSpentTime(@Validated SpentTimeForm spentTimeForm, BindingResult bindingResult) {
+    @RequestMapping(value = "/save/spentTime", method = RequestMethod.POST)
+    public String getSaveSpentTime(@Validated SpentTimeForm spentTimeForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return SAVE_RECORDSPENTTIME;
+            return SAVE_SPENTTIME;
         }
         if ("".equals(spentTimeForm.getId())) {
-            SpentTimeDTO spentTimeDTO = getRecordSpentTimeDTO(spentTimeForm);
+            SpentTimeDTO spentTimeDTO = getSpentTimeDTO(spentTimeForm);
             spentTimeService.insert(spentTimeDTO);
         } else {
-            SpentTimeDTO spentTimeDTO = getRecordSpentTimeDTO(spentTimeForm);
+            SpentTimeDTO spentTimeDTO = getSpentTimeDTO(spentTimeForm);
             spentTimeDTO.setId(spentTimeForm.getId());
             spentTimeService.update(spentTimeDTO);
         }
-        return "redirect:/all/recordSpentTime";
+        return "redirect:/all/spentTime";
     }
 
-    private SpentTimeDTO getRecordSpentTimeDTO(@Validated SpentTimeForm spentTimeForm) {
+    private SpentTimeDTO getSpentTimeDTO (@Validated SpentTimeForm spentTimeForm) {
         SpentTimeDTO spentTimeDTO = new SpentTimeDTO();
         spentTimeDTO.setNumberOfHour(spentTimeForm.getNumberOfHour());
         return spentTimeDTO;
     }
 
-    @RequestMapping(value = "/delete/recordSpentTime/{id}", method = RequestMethod.GET)
-    public RedirectView deleteRecordSpentTime(@PathVariable(value = "id") Long id) {
+    @RequestMapping(value = "/delete/spentTime/{id}", method = RequestMethod.GET)
+    public RedirectView deleteSpentTime(@PathVariable(value = "id") Long id) {
         spentTimeService.deleteById(id);
-        return new RedirectView("/all/recordSpentTime");
+        return new RedirectView("/all/spentTime");
     }
 }

@@ -1,7 +1,5 @@
 package com.asinovich.dto;
 
-import com.asinovich.domain.SpentTime;
-
 import java.util.Date;
 
 /**
@@ -15,14 +13,6 @@ public class SpentTimeDTO {
     private Date insertDate;
     private String numberOfHour;
     private TaskDTO nameTaskDTO;
-
-    public SpentTimeDTO (SpentTime spentTime) {
-        this.id = Long.toString(spentTime.getId());
-        this.employeeNameDTO = new EmployeeDTO(spentTime.getEmployeeName());
-        this.insertDate = spentTime.getInsertDate();
-        this.numberOfHour = Integer.toString(spentTime.getNumberOfHour());
-        this.nameTaskDTO = new TaskDTO(spentTime.getNameTask());
-    }
 
     public SpentTimeDTO () {
     }

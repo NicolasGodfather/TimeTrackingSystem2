@@ -1,7 +1,5 @@
 package com.asinovich.dto;
 
-import com.asinovich.domain.Project;
-
 import java.util.List;
 
 /**
@@ -16,12 +14,6 @@ public class ProjectDTO {
     private List<TaskDTO> taskDTOs;
 
     public ProjectDTO () {
-    }
-
-    public ProjectDTO (Project project) {
-        this.id = Long.toString(project.getId());
-        this.projectName = project.getProjectName();
-        this.responsibleEmployeeDTO = new EmployeeDTO(project.getResponsibleEmployee());
     }
 
     public String getId () {

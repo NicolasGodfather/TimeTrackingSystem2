@@ -2,7 +2,6 @@ package com.asinovich.service.impl;
 
 import com.asinovich.dao.SpentTimeDAO;
 import com.asinovich.domain.SpentTime;
-import com.asinovich.dto.ConverterDTOToDomain;
 import com.asinovich.dto.SpentTimeDTO;
 import com.asinovich.service.SpentTimeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.asinovich.dto.mappers.SpentTimeMapper.convertSpentTimeDTOToSpentTime;
+import static com.asinovich.dto.mappers.SpentTimeMapper.convertSpentTimeToSpentTimeDTO;
 
 /**
  * TODO : still not finish
@@ -24,13 +26,10 @@ public class SpentTimeServiceImpl implements SpentTimeService {
     @Autowired
     private SpentTimeDAO spentTimeDAO;
 
-    @Autowired
-    private ConverterDTOToDomain converterDTOToDomain;
-
     @Override
     @Transactional (readOnly = true)
     public SpentTimeDTO getById (long id) {
-        return new SpentTimeDTO(spentTimeDAO.findOne(id));
+        return convertSpentTimeToSpentTimeDTO(spentTimeDAO.findOne(id));
     }
 
     @Override
@@ -39,7 +38,7 @@ public class SpentTimeServiceImpl implements SpentTimeService {
         List<SpentTime> spentTimes = spentTimeDAO.findAll();
         List<SpentTimeDTO> spentTimeDTOs = new ArrayList<>();
         for (SpentTime spentTime : spentTimes) {
-            spentTimeDTOs.add(new SpentTimeDTO(spentTime));
+            spentTimeDTOs.add(convertSpentTimeToSpentTimeDTO(spentTime));
         }
         return spentTimeDTOs;
     }
@@ -47,15 +46,13 @@ public class SpentTimeServiceImpl implements SpentTimeService {
     @Override
     @Transactional
     public void insert (SpentTimeDTO spentTimeDTO) {
-        spentTimeDAO.saveAndFlush(converterDTOToDomain.
-                convertSpentTimeDTOToSpentTime(spentTimeDTO));
+        spentTimeDAO.saveAndFlush(convertSpentTimeDTOToSpentTime(spentTimeDTO));
     }
 
     @Override
     @Transactional
     public void update (SpentTimeDTO spentTimeDTO) {
-        spentTimeDAO.saveAndFlush(converterDTOToDomain.
-                convertSpentTimeDTOToSpentTime(spentTimeDTO));
+        spentTimeDAO.saveAndFlush(convertSpentTimeDTOToSpentTime(spentTimeDTO));
 
     }
 

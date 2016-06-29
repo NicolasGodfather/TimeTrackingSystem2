@@ -2,7 +2,6 @@ package com.asinovich.service.impl;
 
 import com.asinovich.dao.ProjectDAO;
 import com.asinovich.domain.Project;
-import com.asinovich.dto.ConverterDTOToDomain;
 import com.asinovich.dto.ProjectDTO;
 import com.asinovich.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.asinovich.dto.mappers.ProjectMapper.convertProjectDTOToTheProject;
+import static com.asinovich.dto.mappers.ProjectMapper.convertProjectToTheProjectDTO;
 
 /**
  * Реализация
@@ -24,13 +26,10 @@ public class ProjectServiceImpl implements ProjectService {
     @Autowired
     private ProjectDAO projectDAO;
 
-    @Autowired
-    private ConverterDTOToDomain converterDTOToDomain;
-
     @Override
     @Transactional (readOnly = true)
     public ProjectDTO getById (long id) {
-        return new ProjectDTO(projectDAO.findOne(id));
+        return convertProjectToTheProjectDTO(projectDAO.findOne(id));
     }
 
     @Override
@@ -39,7 +38,7 @@ public class ProjectServiceImpl implements ProjectService {
         List<Project> projects = projectDAO.findAll();
         List<ProjectDTO> projectDTOs = new ArrayList<>();
         for (Project project : projects) {
-            projectDTOs.add(new ProjectDTO(project));
+            projectDTOs.add(convertProjectToTheProjectDTO(project));
         }
         return projectDTOs;
     }
@@ -47,13 +46,13 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     @Transactional
     public void insert (ProjectDTO projectDTO) {
-        projectDAO.saveAndFlush(converterDTOToDomain.convertProjectDTOToTheProject(projectDTO));
+        projectDAO.saveAndFlush(convertProjectDTOToTheProject(projectDTO));
     }
 
     @Override
     @Transactional
     public void update (ProjectDTO projectDTO) {
-        projectDAO.saveAndFlush(converterDTOToDomain.convertProjectDTOToTheProject(projectDTO));
+        projectDAO.saveAndFlush(convertProjectDTOToTheProject(projectDTO));
     }
 
     @Override
