@@ -11,7 +11,7 @@
 <div class="container">
     <jsp:include page="topNavigationButtons.jsp" flush="true"/>
     <h1><p class="text-center">All Tasks</p></h1>
-    <%--<p align="center"><a class="btn btn-sm btn-success" href="/add/task" role="button">Add Task</a></p>--%>
+    <p align="center"><a class="btn btn-sm btn-success" href="/add/task" role="button">Add Task</a></p>
     <table class="table">
         <thead>
         <tr>
@@ -29,7 +29,7 @@
                     <td>${task.id}</td>
                     <td>${task.taskName}</td>
                     <td>${task.responsibleEmployee.name} ${task.responsibleEmployee.surname}</td>
-                    <td>${task.taskOfProject}</td>
+                    <td>${task.taskOfProject.projectName}</td>
                     <td><a href="all/spentTime/${task.spentTimeDTOs}" role="button">View All Records</a></td>
                     <td>
                         <p>

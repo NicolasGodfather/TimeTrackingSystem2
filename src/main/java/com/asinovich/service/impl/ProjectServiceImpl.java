@@ -29,7 +29,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     @Transactional (readOnly = true)
     public ProjectDTO getById (long id) {
-        return projectMapper.convertProjectToTheProjectDTO(projectDAO.findOne(id));
+        return projectMapper.convertProjectToProjectDTO(projectDAO.findOne(id));
     }
 
     @Override
@@ -38,7 +38,7 @@ public class ProjectServiceImpl implements ProjectService {
         List<Project> projects = projectDAO.findAll();
         List<ProjectDTO> projectDTOs = new ArrayList<>();
         for (Project project : projects) {
-            projectDTOs.add(projectMapper.convertProjectToTheProjectDTO(project));
+            projectDTOs.add(projectMapper.convertProjectToProjectDTO(project));
         }
         return projectDTOs;
     }
@@ -46,13 +46,13 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     @Transactional
     public void insert (ProjectDTO projectDTO) {
-        projectDAO.saveAndFlush(projectMapper.convertProjectDTOToTheProject(projectDTO));
+        projectDAO.saveAndFlush(projectMapper.convertProjectDTOToProject(projectDTO));
     }
 
     @Override
     @Transactional
     public void update (ProjectDTO projectDTO) {
-        projectDAO.saveAndFlush(projectMapper.convertProjectDTOToTheProject(projectDTO));
+        projectDAO.saveAndFlush(projectMapper.convertProjectDTOToProject(projectDTO));
     }
 
     @Override

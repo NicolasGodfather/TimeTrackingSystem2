@@ -46,14 +46,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Transactional
     public void insert (EmployeeDTO employeeDTO) {
-//        employeeDAO.saveAndFlush(converterDTOToDomain.convertEmployeeDTOToTheEmployee(employeeDTO));
-        employeeDAO.saveAndFlush(employeeMapper.convertEmployeeDTOToTheEmployee(employeeDTO));
+//        employeeDAO.saveAndFlush(converterDTOToDomain.convertEmployeeDTOToEmployee(employeeDTO));
+        employeeDAO.saveAndFlush(employeeMapper.convertEmployeeDTOToEmployee(employeeDTO));
     }
 
     @Transactional
     public void update (EmployeeDTO employeeDTO) {
-//        employeeDAO.saveAndFlush(converterDTOToDomain.convertEmployeeDTOToTheEmployee(employeeDTO));
-        employeeDAO.saveAndFlush(employeeMapper.convertEmployeeDTOToTheEmployee(employeeDTO));
+//        employeeDAO.saveAndFlush(converterDTOToDomain.convertEmployeeDTOToEmployee(employeeDTO));
+        employeeDAO.saveAndFlush(employeeMapper.convertEmployeeDTOToEmployee(employeeDTO));
     }
 
     @Transactional

@@ -29,7 +29,7 @@ public class TaskServiceImpl implements TaskService {
     @Override
     @Transactional (readOnly = true)
     public TaskDTO getById (long id) {
-        return taskMapper.convertTaskToTheTaskDTO(taskDAO.findOne(id));
+        return taskMapper.convertTaskToTaskDTO(taskDAO.findOne(id));
     }
 
     @Override
@@ -38,7 +38,7 @@ public class TaskServiceImpl implements TaskService {
         List<Task> tasks = taskDAO.findAll();
         List<TaskDTO> taskDTOs = new ArrayList<>();
         for (Task task : tasks) {
-            taskDTOs.add(taskMapper.convertTaskToTheTaskDTO(task));
+            taskDTOs.add(taskMapper.convertTaskToTaskDTO(task));
         }
         return taskDTOs;
     }
@@ -46,13 +46,13 @@ public class TaskServiceImpl implements TaskService {
     @Override
     @Transactional
     public void insert (TaskDTO taskDTO) {
-        taskDAO.saveAndFlush(taskMapper.convertTaskDTOToTheTask(taskDTO));
+        taskDAO.saveAndFlush(taskMapper.convertTaskDTOToTask(taskDTO));
     }
 
     @Override
     @Transactional
     public void update (TaskDTO taskDTO) {
-        taskDAO.saveAndFlush(taskMapper.convertTaskDTOToTheTask(taskDTO));
+        taskDAO.saveAndFlush(taskMapper.convertTaskDTOToTask(taskDTO));
     }
 
     @Override

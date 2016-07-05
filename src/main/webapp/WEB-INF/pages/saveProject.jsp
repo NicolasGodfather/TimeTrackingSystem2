@@ -12,9 +12,10 @@
     <h1><p class="text-center">Save Project</p></h1>
     <form:form method="post" action="/save/project" commandName="projectForm">
         <form:input class="form-control" id="id" path="id" value="${projectForm.id}" type="hidden"/>
-        <form:input class="form-control" id="responsibleEmployeeId" path="responsibleEmployeeId" value="${responsibleEmployeeId}" type="hidden"/>
+        <%--<form:input class="form-control" id="responsibleEmployeeId" path="responsibleEmployeeId" value="${responsibleEmployeeId}" type="hidden"/>--%>
+
+        <label>Project Name</label><br/>
         <div class="form-group">
-            <label>Project Name</label><br/>
             <form:input class="form-control" id="projectName" path="projectName" placeholder="Project Name"
                         value="${projectForm.projectName}"/>
             <form:errors path="projectName" cssStyle="color: #ff0000;"/>

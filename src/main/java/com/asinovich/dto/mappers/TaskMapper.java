@@ -26,21 +26,21 @@ public class TaskMapper {
     /**
      * Convert to Task
      */
-    public Task convertTaskDTOToTheTask (TaskDTO taskDTO) {
+    public Task convertTaskDTOToTask (TaskDTO taskDTO) {
         Task task = new Task();
-        List<SpentTime> spentTimes = new ArrayList<>();
-        getSpentTimeList(taskDTO, spentTimes);
+        getSpentTimeList(taskDTO);
         if (taskDTO.getId() == null) {
-            setTask(taskDTO, task, spentTimes);
+            setTask(taskDTO, task);
         } else {
             task.setId(Long.parseLong(taskDTO.getId()));
-            setTask(taskDTO, task, spentTimes);
+            setTask(taskDTO, task);
         }
         return task;
     }
 
-    private List<SpentTime> getSpentTimeList (TaskDTO taskDTO, List<SpentTime> spentTimes) {
+    private List<SpentTime> getSpentTimeList (TaskDTO taskDTO) {
         SpentTime spentTime = new SpentTime();
+        List<SpentTime> spentTimes = new ArrayList<>();
         List<SpentTimeDTO> spentTimeDTOs = taskDTO.getSpentTimeDTOs();
         if (taskDTO.getId() != null) {
             for (SpentTimeDTO spentTimeDTO : spentTimeDTOs) {
@@ -56,30 +56,31 @@ public class TaskMapper {
         return spentTimes;
     }
 
-    void setTask (TaskDTO taskDTO, Task task, List<SpentTime> spentTimes) {
+    void setTask (TaskDTO taskDTO, Task task) {
+        List<SpentTime> spentTimes = new ArrayList<>();
         task.setTaskName(taskDTO.getTaskName());
-        task.setResponsibleEmployee(employeeMapper.convertEmployeeDTOToTheEmployee(taskDTO.getResponsibleEmployee()));
+        task.setResponsibleEmployee(employeeMapper.convertEmployeeDTOToEmployee(taskDTO.getResponsibleEmployee()));
         task.setListSpentTime(spentTimes);
     }
 
     /**
      * Convert to TaskDTO
      */
-    public TaskDTO convertTaskToTheTaskDTO (Task task) {
+    public TaskDTO convertTaskToTaskDTO (Task task) {
         TaskDTO taskDTO = new TaskDTO();
-        List<SpentTimeDTO> spentTimesDTOs = new ArrayList<>();
-        getSpentTimeListDTO(task, spentTimesDTOs);
+        getSpentTimeListDTO(task);
         if (task.getId() == 0) {
-            setTaskDTO(taskDTO, task, spentTimesDTOs);
+            setTaskDTO(taskDTO, task);
         } else {
             taskDTO.setId(getValueOf(task.getId()));
-            setTaskDTO(taskDTO, task, spentTimesDTOs);
+            setTaskDTO(taskDTO, task);
         }
         return taskDTO;
     }
 
-    private List<SpentTimeDTO> getSpentTimeListDTO (Task task, List<SpentTimeDTO> spentTimesDTOs) {
+    private List<SpentTimeDTO> getSpentTimeListDTO (Task task) {
         SpentTimeDTO spentTimeDTO = new SpentTimeDTO();
+        List<SpentTimeDTO> spentTimesDTOs = new ArrayList<>();
         List<SpentTime> spentTimes = task.getListSpentTime();
         if (getValueOf(task.getId()).isEmpty()) {
             for (SpentTime spentTime : spentTimes) {
@@ -94,7 +95,8 @@ public class TaskMapper {
         }
         return spentTimesDTOs;
     }
-    void setTaskDTO (TaskDTO taskDTO, Task task, List<SpentTimeDTO> spentTimesDTOs) {
+    void setTaskDTO (TaskDTO taskDTO, Task task) {
+        List<SpentTimeDTO> spentTimesDTOs = new ArrayList<>();
         taskDTO.setTaskName(task.getTaskName());
         taskDTO.setResponsibleEmployee(employeeMapper.convertEmployeeToTheEmployeeDTO(task.getResponsibleEmployee()));
         taskDTO.setSpentTimeDTOs(spentTimesDTOs);

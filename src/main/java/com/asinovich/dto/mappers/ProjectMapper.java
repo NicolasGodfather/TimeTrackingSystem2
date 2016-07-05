@@ -1,10 +1,8 @@
 package com.asinovich.dto.mappers;
 
 import com.asinovich.domain.Project;
-import com.asinovich.domain.SpentTime;
 import com.asinovich.domain.Task;
 import com.asinovich.dto.ProjectDTO;
-import com.asinovich.dto.SpentTimeDTO;
 import com.asinovich.dto.TaskDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -27,10 +25,9 @@ public class ProjectMapper {
     /**
      * Convert Project
      */
-    public Project convertProjectDTOToTheProject (ProjectDTO projectDTO) {
+    public Project convertProjectDTOToProject (ProjectDTO projectDTO) {
         Project project = new Project();
-        List<Task> tasks = new ArrayList<>();
-        getTaskList(projectDTO, tasks);
+        getTaskList(projectDTO);
         if (projectDTO.getId() == null) {
             setProject(projectDTO, project);
         } else {
@@ -40,19 +37,19 @@ public class ProjectMapper {
         return project;
     }
 
-    private List<Task> getTaskList (ProjectDTO projectDTO, List<Task> tasks) {
-        List<SpentTime> spentTimes = new ArrayList<>();
+    private List<Task> getTaskList (ProjectDTO projectDTO) {
         Task task = new Task();
+        List<Task> tasks = new ArrayList<>();
         List<TaskDTO> taskDTOs = projectDTO.getTaskDTOs();
         if (projectDTO.getTaskDTOs() != null) {
             for (TaskDTO taskDTO : taskDTOs) {
                 if (taskDTO.getId() == null) {
-                    taskMapper.setTask(taskDTO, task, spentTimes);
+                    taskMapper.setTask(taskDTO, task);
                 } else {
                     task.setId(Long.parseLong(taskDTO.getId()));
-                    taskMapper.setTask(taskDTO, task, spentTimes);
+                    taskMapper.setTask(taskDTO, task);
                 }
-                tasks.add(taskMapper.convertTaskDTOToTheTask(taskDTO));
+                tasks.add(taskMapper.convertTaskDTOToTask(taskDTO));
             }
         }
         return tasks;
@@ -61,16 +58,15 @@ public class ProjectMapper {
     private void setProject (ProjectDTO projectDTO, Project project) {
         project.setProjectName(projectDTO.getProjectName());
         project.setResponsibleEmployee(employeeMapper.
-                convertEmployeeDTOToTheEmployee(projectDTO.getResponsibleEmployeeDTO()));
+                convertEmployeeDTOToEmployee(projectDTO.getResponsibleEmployeeDTO()));
     }
 
     /**
      * Convert ProjectDTO
      */
-    public ProjectDTO convertProjectToTheProjectDTO (Project project) {
+    public ProjectDTO convertProjectToProjectDTO (Project project) {
         ProjectDTO projectDTO = new ProjectDTO();
-        List<TaskDTO> taskDTOs = new ArrayList<>();
-        getTaskListDTO(project, taskDTOs);
+        getTaskListDTO(project);
         if (getValueOf(project.getId()).isEmpty()) {
             setProjectDTO(projectDTO, project);
         } else {
@@ -80,19 +76,19 @@ public class ProjectMapper {
         return projectDTO;
     }
 
-    private List<TaskDTO> getTaskListDTO (Project project, List<TaskDTO> taskDTOs) {
-        List<SpentTimeDTO> spentTimeDTOs = new ArrayList<>();
+    private List<TaskDTO> getTaskListDTO (Project project) {
         TaskDTO taskDTO = new TaskDTO();
+        List<TaskDTO> taskDTOs = new ArrayList<>();
         List<Task> tasks = project.getListTask();
         if (project.getListTask() != null) {
             for (Task task : tasks) {
                 if (getValueOf(task.getId()).isEmpty()) {
-                    taskMapper.setTaskDTO(taskDTO, task, spentTimeDTOs);
+                    taskMapper.setTaskDTO(taskDTO, task);
                 } else {
                     taskDTO.setId(getValueOf(task.getId()));
-                    taskMapper.setTaskDTO(taskDTO, task, spentTimeDTOs);
+                    taskMapper.setTaskDTO(taskDTO, task);
                 }
-                taskDTOs.add(taskMapper.convertTaskToTheTaskDTO(task));
+                taskDTOs.add(taskMapper.convertTaskToTaskDTO(task));
             }
         }
         return taskDTOs;

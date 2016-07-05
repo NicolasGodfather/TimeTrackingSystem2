@@ -49,6 +49,12 @@ public class ProjectController {
         return All_PROJECT;
     }
 
+//    @RequestMapping (value = "/add/project", method = RequestMethod.GET)
+//    public String showPageAddProject(ModelMap modelMap) {
+//        modelMap.addAttribute("projectForm", new ProjectForm());
+//        return SAVE_PROJECT;
+//    }
+
     @RequestMapping(value = "/save/project/{id}", method = RequestMethod.GET)
     public String showPageEditProject(@PathVariable (value = "id") Long id, ModelMap modelMap) {
         ProjectDTO projectDTO = projectService.getById(id);

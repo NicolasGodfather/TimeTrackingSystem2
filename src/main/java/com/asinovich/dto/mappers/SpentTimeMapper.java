@@ -29,7 +29,7 @@ public class SpentTimeMapper {
     }
 
     void setSpentTime (SpentTimeDTO spentTimeDTO, SpentTime spentTime) {
-        spentTime.setEmployeeName(employeeMapper.convertEmployeeDTOToTheEmployee(spentTimeDTO.getEmployeeNameDTO()));
+        spentTime.setEmployeeName(employeeMapper.convertEmployeeDTOToEmployee(spentTimeDTO.getEmployeeNameDTO()));
         spentTime.setInsertDate(spentTimeDTO.getInsertDate());
         spentTime.setNumberOfHour(new Integer(spentTimeDTO.getNumberOfHour()));
     }
