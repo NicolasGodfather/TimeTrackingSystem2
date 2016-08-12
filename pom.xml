@@ -38,7 +38,7 @@
         <artifactId>tomcat7-maven-plugin</artifactId>
         <version>2.2</version>
         <configuration>
-          <url>http://localhost:8090/web</url>
+          <!--<url>http://localhost:8080/web</url>-->
           <server>tomcatserver</server>
           <path>/</path>
           <username>root</username>
