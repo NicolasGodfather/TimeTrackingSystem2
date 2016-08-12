@@ -1,9 +1,6 @@
 package com.asinovich.dao;
 
 import com.asinovich.domain.SpentTime;
-import org.springframework.data.repository.CrudRepository;
-
-import java.util.List;
 
 /**
  * Реализация поведения Записи Затраченного Времени
@@ -15,9 +12,6 @@ import java.util.List;
  *
  * @author Nicolas Asinovich.
  */
-public interface SpentTimeDAO extends CrudRepository<SpentTime, Long> {
+public interface SpentTimeDAO extends AbstractCrud<SpentTime, Long> {
 
-    List<SpentTime> findAll();
-
-    void saveAndFlush(SpentTime spentTime);
 }

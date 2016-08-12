@@ -36,7 +36,7 @@ public class TaskServiceImpl implements TaskService {
     @Transactional (readOnly = true)
     public List<TaskDTO> getAll () {
         List<Task> tasks = taskDAO.findAll();
-        List<TaskDTO> taskDTOs = new ArrayList<>();
+        List<TaskDTO> taskDTOs = new ArrayList<TaskDTO>();
         for (Task task : tasks) {
             taskDTOs.add(taskMapper.convertTaskToTaskDTO(task));
         }
@@ -59,6 +59,6 @@ public class TaskServiceImpl implements TaskService {
     @Transactional
     public void deleteById (long id) {
         Task task = taskDAO.findOne(id);
-        taskDAO.delete(task);
+        taskDAO.deleted(task);
     }
 }

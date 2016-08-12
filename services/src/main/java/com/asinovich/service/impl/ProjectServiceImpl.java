@@ -36,7 +36,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Transactional (readOnly = true)
     public List<ProjectDTO> getAll () {
         List<Project> projects = projectDAO.findAll();
-        List<ProjectDTO> projectDTOs = new ArrayList<>();
+        List<ProjectDTO> projectDTOs = new ArrayList<ProjectDTO>();
         for (Project project : projects) {
             projectDTOs.add(projectMapper.convertProjectToProjectDTO(project));
         }
@@ -59,6 +59,6 @@ public class ProjectServiceImpl implements ProjectService {
     @Transactional
     public void deleteById (long id) {
         Project project = projectDAO.findOne(id);
-        projectDAO.delete(project);
+        projectDAO.deleted(project);
     }
 }

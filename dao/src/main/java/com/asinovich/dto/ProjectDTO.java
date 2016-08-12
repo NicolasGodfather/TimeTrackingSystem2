@@ -32,19 +32,19 @@ public class ProjectDTO {
         this.projectName = projectName;
     }
 
-    public EmployeeDTO getResponsibleEmployeeDTO () {
+    public com.asinovich.dto.EmployeeDTO getResponsibleEmployeeDTO () {
         return responsibleEmployeeDTO;
     }
 
-    public void setResponsibleEmployeeDTO (EmployeeDTO responsibleEmployeeDTO) {
+    public void setResponsibleEmployeeDTO (com.asinovich.dto.EmployeeDTO responsibleEmployeeDTO) {
         this.responsibleEmployeeDTO = responsibleEmployeeDTO;
     }
 
-    public List<TaskDTO> getTaskDTOs () {
+    public List<com.asinovich.dto.TaskDTO> getTaskDTOs () {
         return taskDTOs;
     }
 
-    public void setTaskDTOs (List<TaskDTO> taskDTOs) {
+    public void setTaskDTOs (List<com.asinovich.dto.TaskDTO> taskDTOs) {
         this.taskDTOs = taskDTOs;
     }
 }

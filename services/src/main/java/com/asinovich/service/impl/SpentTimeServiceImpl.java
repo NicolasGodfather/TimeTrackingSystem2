@@ -37,7 +37,7 @@ public class SpentTimeServiceImpl implements SpentTimeService {
     @Transactional(readOnly = true)
     public List<SpentTimeDTO> getAll () {
         List<SpentTime> spentTimes = spentTimeDAO.findAll();
-        List<SpentTimeDTO> spentTimeDTOs = new ArrayList<>();
+        List<SpentTimeDTO> spentTimeDTOs = new ArrayList<SpentTimeDTO>();
         for (SpentTime spentTime : spentTimes) {
             spentTimeDTOs.add(spentTimeMapper.convertSpentTimeToSpentTimeDTO(spentTime));
         }
@@ -61,6 +61,6 @@ public class SpentTimeServiceImpl implements SpentTimeService {
     @Transactional
     public void deleteById (long id) {
         SpentTime spentTime = spentTimeDAO.findOne(id);
-        spentTimeDAO.delete(spentTime);
+        spentTimeDAO.deleted(spentTime);
     }
 }

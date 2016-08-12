@@ -39,7 +39,7 @@ public class ProjectMapper {
 
     private List<Task> getTaskList (ProjectDTO projectDTO) {
         Task task = new Task();
-        List<Task> tasks = new ArrayList<>();
+        List<Task> tasks = new ArrayList<Task>();
         List<TaskDTO> taskDTOs = projectDTO.getTaskDTOs();
         if (projectDTO.getTaskDTOs() != null) {
             for (TaskDTO taskDTO : taskDTOs) {
@@ -78,7 +78,7 @@ public class ProjectMapper {
 
     private List<TaskDTO> getTaskListDTO (Project project) {
         TaskDTO taskDTO = new TaskDTO();
-        List<TaskDTO> taskDTOs = new ArrayList<>();
+        List<TaskDTO> taskDTOs = new ArrayList<TaskDTO>();
         List<Task> tasks = project.getListTask();
         if (project.getListTask() != null) {
             for (Task task : tasks) {

@@ -59,6 +59,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Transactional
     public void deleteById (long id) {
         Employee employee = employeeDAO.findOne(id);
-        employeeDAO.delete(employee);
+        employeeDAO.deleted(employee);
     }
 }
