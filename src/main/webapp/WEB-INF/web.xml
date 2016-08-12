@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-    <display-name>Time Tracking System</display-name>
+    <display-name>TimeTrackingSystem2</display-name>
 
     <servlet>
         <servlet-name>mvc-dispatcher</servlet-name>

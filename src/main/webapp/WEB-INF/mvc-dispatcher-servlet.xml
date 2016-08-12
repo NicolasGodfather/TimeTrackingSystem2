@@ -15,16 +15,15 @@
        http://www.springframework.org/schema/data/jpa
        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
     <mvc:annotation-driven/>
 
     <context:annotation-config/>
     <tx:annotation-driven/>
 
     <!--Подстановка переменных-заполнителей -->
-    <context:property-placeholder
-            ignore-unresolvable="true"
-            location="classpath:application.properties" /> <!-- здесь будут искаться property файлы -->
+    <!--<context:property-placeholder-->
+            <!--ignore-unresolvable="true"-->
+            <!--location="classpath:application.properties" /> &lt;!&ndash; здесь будут искаться property файлы &ndash;&gt;-->
 
     <context:component-scan base-package="com.asinovich"/>
 

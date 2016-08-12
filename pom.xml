@@ -5,11 +5,12 @@
   <groupId>com.asinovich</groupId>
   <artifactId>TimeTrackingSystem2</artifactId>
   <packaging>war</packaging>
-  <version>1.0</version>
+  <version>1.0.0</version>
   <name>TimeTrackingSystem2</name>
   <url>http://maven.apache.org</url>
 
   <properties>
+    <java-version>1.8</java-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <spring.version>4.2.5.RELEASE</spring.version>
   </properties>
@@ -133,19 +134,29 @@
   <build>
     <finalName>>TimeTrackingSystem2</finalName>
     <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
+     <!-- <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.1</version>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <webXml>src\main\webapp\WEB-INF\web.xml</webXml>
+        </configuration>
+      </plugin>-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.1.1</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
       <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
         <configuration>
-          <includes>
-            <include>**/*Tests.java</include>
-          </includes>
+          <source>${java-version}</source>
+          <target>${java-version}</target>
         </configuration>
       </plugin>
     </plugins>
